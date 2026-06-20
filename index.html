@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Special Journey 🐝</title>
+    <title>Our Ultimate Journey 🐝✨</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,7 +26,6 @@
         <div class="container text-center">
             <h2 class="subtitle">A little something for you...</h2>
             <p class="game-hint">Tap the envelope to open it! ✉️</p>
-            
             <div class="envelope-wrapper" onclick="openEnvelope()">
                 <div class="envelope">
                     <div class="front flap"></div>
@@ -40,7 +39,6 @@
                     </div>
                 </div>
             </div>
-            
             <button id="btn-to-ch3" class="btn-action hidden" onclick="nextChapter(3)">Continue the Journey ➡️</button>
         </div>
     </section>
@@ -50,11 +48,9 @@
         <div class="container text-center game-container">
             <h2 class="subtitle">Catch My Heart! ❤️</h2>
             <p id="game-hint" class="game-hint">It's chasing after you, see if you can catch it...</p>
-            
             <div class="game-area">
                 <div id="heart-target" onclick="catchHeart(event)" onmouseover="flyAway()" ontouchstart="flyAway()"></div>
             </div>
-
             <button id="btn-to-ch4" class="btn-action hidden" onclick="nextChapter(4)">You caught my heart! Let's continue 🥰</button>
         </div>
     </section>
@@ -64,12 +60,10 @@
         <div class="container text-center jar-container">
             <h2 class="subtitle">The Little Love Jar</h2>
             <p id="jar-hint" class="game-hint">Tap the big jar to shake loose a hidden message...</p>
-            
             <div class="jar-wrapper" onclick="shakeJar()">
                 <div id="love-jar">🫙</div>
                 <div id="jar-note" class="hidden-note">Click me!</div>
             </div>
-
             <button id="btn-to-ch5" class="btn-action hidden" onclick="nextChapter(5)">Let's keep going ➡️</button>
         </div>
     </section>
@@ -79,12 +73,10 @@
         <div class="container text-center worry-container">
             <h2 class="subtitle">Take Away Your Worries ☁️</h2>
             <p id="worry-hint" class="game-hint">Click the dark heavy storm cloud to blow it completely away! 👉</p>
-            
             <div class="sky-arena">
                 <div class="bright-sun">☀️</div>
                 <div id="dark-cloud" onclick="dismissCloud(event)">☁️</div>
             </div>
-
             <button id="btn-to-ch6" class="btn-action hidden" onclick="nextChapter(6)">Your sky is clear! Let's continue ➡️</button>
         </div>
     </section>
@@ -94,71 +86,218 @@
         <div class="container text-center memory-container">
             <h2 class="subtitle">Our Memory Scrapbook 📖</h2>
             <p class="game-hint">Click the button below to look back at us...</p>
-            
             <div class="book-wrapper">
                 <div class="book-page">
                     <p id="memory-text" class="memory-content">✨ Page 1: The day you walked into my life and changed everything completely.</p>
                 </div>
             </div>
-
             <button id="btn-next-page" class="btn-action" onclick="turnPage()">Turn Page ➡️</button>
             <button id="btn-to-ch7" class="btn-action hidden" onclick="nextChapter(7)">Let's start our new adventures! 🍕</button>
         </div>
     </section>
 
-    <!-- CHAPTER 7: OUR PIZZA TOPPING GAME 🍕 (NEW!) -->
+    <!-- CHAPTER 7: OUR PIZZA TOPPING GAME 🍕 -->
     <section id="chapter-7" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Chapter 7: Build Our Perfect Comfort Pizza 🍕</h2>
+            <h2 class="subtitle">Build Our Perfect Comfort Pizza 🍕</h2>
             <p id="pizza-hint" class="game-hint">Tap the ingredients below to dress up our love slice!</p>
-            
             <div class="pizza-base">
-                <div class="crust">
-                    <div id="pizza-toppings-zone"></div>
-                </div>
+                <div class="crust"><div id="pizza-toppings-zone"></div></div>
             </div>
-
             <div class="ingredients-shelf">
                 <span class="ingredient-item" onclick="addIngredient('❤️')">❤️ Love</span>
                 <span class="ingredient-item" onclick="addIngredient('🧀')">🧀 Extra Cheese</span>
                 <span class="ingredient-item" onclick="addIngredient('🍍')">🍍 Pineapple (Silly)</span>
                 <span class="ingredient-item" onclick="addIngredient('🌶️')">🌶️ Spice</span>
             </div>
-
             <button id="btn-to-ch8" class="btn-action hidden" onclick="nextChapter(8)">Tastes perfect! Next Chapter ➡️</button>
         </div>
     </section>
 
-    <!-- CHAPTER 8: MINI QUIZ 🧐 (NEW!) -->
+    <!-- CHAPTER 8: MINI QUIZ 🧐 -->
     <section id="chapter-8" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Chapter 8: The Ultimate Mini-Trivia Challenge 🧐</h2>
+            <h2 class="subtitle">The Ultimate Mini-Trivia Challenge 🧐</h2>
             <p id="quiz-question" class="game-hint">Question: Where is my absolute favorite place to be in the entire world?</p>
-            
             <div class="quiz-options">
                 <button class="quiz-opt-btn" onclick="checkQuizAnswer(false, this)">🪐 On a peaceful isolated planet</button>
                 <button class="quiz-opt-btn" onclick="checkQuizAnswer(true, this)">🤗 Right wrapped inside your arms</button>
                 <button class="quiz-opt-btn" onclick="checkQuizAnswer(false, this)">🏖️ Chilling on a beach in Bali</button>
             </div>
             <p id="quiz-feedback" class="quiz-feedback-box"></p>
-
-            <button id="btn-to-ch9" class="btn-action hidden" onclick="nextChapter(9)">Nailed it! Go to the Grand Finale 🥳</button>
+            <button id="btn-to-ch9" class="btn-action hidden" onclick="nextChapter(9)">Nailed it! Let's continue 🥳</button>
         </div>
     </section>
 
-    <!-- CHAPTER 9: CLAIM YOUR COUPON 🎟️ (NEW!) -->
+    <!-- CHAPTER 9: STRESS POPPER BUBBLE WRAP 🧼 -->
     <section id="chapter-9" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Chapter 9: Your Ultimate Grand Prize! 🎟️</h2>
-            <p class="game-hint">You completed the extended journey! Scratch or claim your prize below:</p>
-            
-            <div class="love-coupon" id="coupon-card" onclick="claimCoupon(event)">
-                <div class="coupon-header">OFFICIAL LOVE TICKET</div>
-                <div class="coupon-title">🎟️ 1 FREE INFINITE HUG COUPON</div>
-                <div class="coupon-footer">Redeemable anytime you feel stressed or sad. Valid forever. ❤️</div>
-            </div>
+            <h2 class="subtitle">Chapter 9: Infinite Anti-Stress Pop! 🧼</h2>
+            <p class="game-hint">Pop 8 stress bubbles to unlock your mood booster!</p>
+            <div class="bubble-grid" id="bubble-wrap-grid"></div>
+            <button id="btn-to-ch10" class="btn-action hidden" onclick="nextChapter(10)">All clear! Next Chapter ➡️</button>
+        </div>
+    </section>
 
-            <button class="btn-action" onclick="alert('I love you to the moon and back! Show me a screenshot of your ticket to redeem it! 🥰')">Finish & Send Love 🍯</button>
+    <!-- CHAPTER 10: THE LOVE SLOT MACHINE 🎰 -->
+    <section id="chapter-10" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 10: Match My Jackpot 🎰</h2>
+            <p class="game-hint">Spin the wheel to match 3 hearts for an infinite supply of happiness!</p>
+            <div class="slot-machine">
+                <div class="slot-reel" id="reel1">❤️</div>
+                <div class="slot-reel" id="reel2">✨</div>
+                <div class="slot-reel" id="reel3">🌸</div>
+            </div>
+            <button class="btn-action" id="btn-spin-slots" onclick="spinSlots()">🎰 Pull Lever!</button>
+            <button id="btn-to-ch11" class="btn-action hidden" onclick="nextChapter(11)">You won my heart! Advance ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 11: PET THE ADORABLE CAT/BEAR 🐱 -->
+    <section id="chapter-11" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 11: Give the Companion a Pat 🐱</h2>
+            <p id="pet-hint" class="game-hint">Rub/Click him multiple times to make him purr and glow!</p>
+            <div id="virtual-pet" onclick="petAnimal()">🐱</div>
+            <div class="progress-bar-container"><div id="pet-progress"></div></div>
+            <button id="btn-to-ch12" class="btn-action hidden" onclick="nextChapter(12)">He loves you! Keep going ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 12: COSMIC STAR ALIGNMENT 🌌 -->
+    <section id="chapter-12" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 12: Align Our Constellation 🌌</h2>
+            <p class="game-hint">Click the scrambled stars to turn them all bright gold and complete the cosmic link!</p>
+            <div class="star-sky" id="star-sky-field">
+                <div class="sky-star" style="top:20%; left:20%;" onclick="lightStar(this)">⭐</div>
+                <div class="sky-star" style="top:50%; left:45%;" onclick="lightStar(this)">⭐</div>
+                <div class="sky-star" style="top:30%; left:75%;" onclick="lightStar(this)">⭐</div>
+                <div class="sky-star" style="top:75%; left:30%;" onclick="lightStar(this)">⭐</div>
+                <div class="sky-star" style="top:70%; left:70%;" onclick="lightStar(this)">⭐</div>
+            </div>
+            <button id="btn-to-ch13" class="btn-action hidden" onclick="nextChapter(13)">Written in the stars! Next ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 13: THE SECRET DECRYPTION KEY 🔐 -->
+    <section id="chapter-13" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 13: Unlock My Top Secret Code 🔐</h2>
+            <p class="game-hint">Type the password <strong>"ILOVEYOU"</strong> to decrypt a hidden confession!</p>
+            <input type="text" id="decrypt-input" class="custom-input" placeholder="Enter password here..." oninput="checkSecretCode()">
+            <p id="decrypt-message" style="margin-top: 15px; font-weight: bold; min-height: 20px;"></p>
+            <button id="btn-to-ch14" class="btn-action hidden" onclick="nextChapter(14)">Access Granted! Proceed ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 14: FLOWER BOUQUET BUILDER 💐 -->
+    <section id="chapter-14" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 14: Assemble A Beautiful Bouquet 💐</h2>
+            <p class="game-hint">Pick 4 beautiful matching flowers to fill the vase!</p>
+            <div class="flower-vase" id="vase-display">🏺</div>
+            <div class="flower-options">
+                <button class="flower-btn" onclick="addFlower('🌹')">🌹 Rose</button>
+                <button class="flower-btn" onclick="addFlower('🌷')">🌷 Tulip</button>
+                <button class="flower-btn" onclick="addFlower('🌻')">🌻 Sunflower</button>
+                <button class="flower-btn" onclick="addFlower('🌸')">🌸 Cherry</button>
+            </div>
+            <button id="btn-to-ch15" class="btn-action hidden" onclick="nextChapter(15)">Gorgeous bouquet! Forward ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 15: ARCADE BRICK BREAK BOOSTER 🧱 -->
+    <section id="chapter-15" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 15: Destroy Your Bad Thoughts 🧱</h2>
+            <p class="game-hint">Tap each heavy block to smash it into pieces!</p>
+            <div class="brick-arena">
+                <div class="brick" onclick="breakBrick(this)">Anxiety ❌</div>
+                <div class="brick" onclick="breakBrick(this)">Overthinking ❌</div>
+                <div class="brick" onclick="breakBrick(this)">Stress ❌</div>
+                <div class="brick" onclick="breakBrick(this)">Self-Doubt ❌</div>
+            </div>
+            <button id="btn-to-ch16" class="btn-action hidden" onclick="nextChapter(16)">All blocks smashed! Proceed ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 16: MAGIC TEA MAKER ☕ -->
+    <section id="chapter-16" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 16: Brew Some Warm Healing Tea ☕</h2>
+            <p class="game-hint">Add 3 items to make a soothing hot digital remedy brew!</p>
+            <div class="mug-container" id="tea-mug">🍵<div id="steam-effect">♨️</div></div>
+            <div class="tea-ingredients">
+                <button class="ingredient-item" onclick="addTeaElement('🍯 Honey')">🍯 Honey</button>
+                <button class="ingredient-item" onclick="addTeaElement('🍋 Lemon')">🍋 Lemon</button>
+                <button class="ingredient-item" onclick="addTeaElement('🌸 Calm')">🌸 Calm Essence</button>
+            </div>
+            <button id="btn-to-ch17" class="btn-action hidden" onclick="nextChapter(17)">Mmm, perfect flavor! Advance ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 17: SAND TREASURE DIGGER 🏖️ -->
+    <section id="chapter-17" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 17: Dig For The Buried Gift 🏖️</h2>
+            <p id="dig-hint" class="game-hint">Click the sandy patches until you uncover my hidden chest!</p>
+            <div class="dig-sand-box">
+                <div class="sand-patch" onclick="digSand(this)">⏳</div>
+                <div class="sand-patch" onclick="digSand(this)">⏳</div>
+                <div class="sand-patch" onclick="digSand(this, true)">⏳</div>
+                <div class="sand-patch" onclick="digSand(this)">⏳</div>
+            </div>
+            <button id="btn-to-ch18" class="btn-action hidden" onclick="nextChapter(18)">Incredible find! Let's go ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 18: NIGHT SKY FIREWORKS POPPER 🎆 -->
+    <section id="chapter-18" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 18: Ignite Bright New Colors 🎆</h2>
+            <p class="game-hint">Tap each floating rocket fuse to launch a giant visual blast!</p>
+            <div class="firework-sky">
+                <span class="rocket" onclick="launchRocket(this, '💖')">🚀</span>
+                <span class="rocket" onclick="launchRocket(this, '✨')">🚀</span>
+                <span class="rocket" onclick="launchRocket(this, '⭐')">🚀</span>
+            </div>
+            <button id="btn-to-ch19" class="btn-action hidden" onclick="nextChapter(19)">What a stunning show! Next ➡️</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 19: THE CONFIDENCE REAFFIRMATION WRITER 📝 -->
+    <section id="chapter-19" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 19: My Ultimate Promise Board 📝</h2>
+            <p class="game-hint">Flip over all three cards to see what I promise to stand by forever.</p>
+            <div class="flip-board">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner"><div class="flip-card-front">🔍 Card 1</div><div class="flip-card-back">I will always pick you first. 🥇</div></div>
+                </div>
+                <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
+                    <div class="flip-card-inner"><div class="flip-card-front">🔍 Card 2</div><div class="flip-card-back">I will love you through mistakes. 🩹</div></div>
+                </div>
+                <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
+                    <div class="flip-card-inner"><div class="flip-card-front">🔍 Card 3</div><div class="flip-card-back">I'm never letting go. ⚓</div></div>
+                </div>
+            </div>
+            <button id="btn-to-ch20" class="btn-action hidden" onclick="nextChapter(20)">Go to the Grand Finale 🎉</button>
+        </div>
+    </section>
+
+    <!-- CHAPTER 20: CLAIM YOUR COUPON GRAND FINALE 🎟️ -->
+    <section id="chapter-20" class="chapter">
+        <div class="container text-center interactive-panel">
+            <h2 class="subtitle">Chapter 20: Your Ultimate Golden Ticket Ticket Prize! 🎟️</h2>
+            <p class="game-hint">You completed all 20 chapters! Click your prize below to imprint your name:</p>
+            <div class="love-coupon" id="coupon-card" onclick="claimCoupon(event)">
+                <div class="coupon-header">MASTER LOVE TICKET VALID FOREVER</div>
+                <div class="coupon-title">🎟️ 1 FREE INFINITE HUG COUPON</div>
+                <div class="coupon-footer">Redeemable anytime you feel stressed or sad. Valid across the entire universe. ❤️</div>
+            </div>
+            <button class="btn-action" onclick="alert('I love you to the moon and back! Show me a screenshot of your ticket to redeem your infinite cuddles! 🥰')">Finish & Send Infinite Love 🍯</button>
         </div>
     </section>
 
