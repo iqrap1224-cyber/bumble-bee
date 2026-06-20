@@ -1,225 +1,197 @@
-// Universal Flow Router Engine
+// Hardware Accelerated State Control Engine
 function nextChapter(chapterNumber) {
-    document.querySelectorAll('.chapter').forEach(chapter => {
-        chapter.classList.remove('active');
-    });
-
-    const targetChapter = document.getElementById(`chapter-${chapterNumber}`);
-    if (targetChapter) {
-        targetChapter.classList.add('active');
-        window.scrollTo(0, 0);
+    const currentActive = document.querySelector('.chapter.active');
+    if (currentActive) {
+        currentActive.style.opacity = "0";
     }
+
+    setTimeout(() => {
+        document.querySelectorAll('.chapter').forEach(chapter => {
+            chapter.classList.remove('active');
+        });
+
+        const targetChapter = document.getElementById(`chapter-${chapterNumber}`);
+        if (targetChapter) {
+            targetChapter.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, 120);
 }
 
-// Ambient Floating Particles Loop
+// Low-Weight Ambient Particle Engine
 function createAmbientHearts() {
-    const symbols = ["❤️", "💖", "✨", "🐝", "🌸"];
+    const symbols = ["✨", "⚜️", "🌹", "👑", "🕊️"];
     setInterval(() => {
-        const particle = document.createElement("div");
-        particle.classList.add("floating-particle");
-        particle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        particle.style.left = Math.random() * 100 + "vw";
-        particle.style.fontSize = (Math.random() * 1 + 1) + "rem";
-        particle.style.animationDuration = (Math.random() * 3 + 4) + "s";
-        
-        document.body.appendChild(particle);
-        setTimeout(() => particle.remove(), 7000);
-    }, 1200);
+        if (document.hidden) return;
+        const p = document.createElement("div");
+        p.classList.add("floating-particle");
+        p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        p.style.left = Math.random() * 90 + "vw";
+        p.style.fontSize = (Math.random() * 0.4 + 1) + "rem";
+        p.style.animationDuration = (Math.random() * 2 + 6) + "s";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 6500);
+    }, 2500);
 }
 createAmbientHearts();
 
-// Confetti Particle Explosion
+// High Performance Fragment Burst Array
 function burstConfetti(x, y) {
-    const shapes = ["🌸", "❤️", "✨", "🎉", "🍬"];
-    for (let i = 0; i < 35; i++) {
+    const shapes = ["✨", "⚜️", "🌹", "💎"];
+    const container = document.createDocumentFragment();
+    for (let i = 0; i < 15; i++) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
         confetti.innerText = shapes[Math.floor(Math.random() * shapes.length)];
         confetti.style.left = x + "px";
         confetti.style.top = y + "px";
-        confetti.style.fontSize = Math.random() * 1.5 + 0.8 + "rem";
         
-        const destinationX = (Math.random() - 0.5) * 400;
-        const destinationY = (Math.random() - 0.7) * 400;
-        const rotation = Math.random() * 360;
-        
+        const destinationX = (Math.random() - 0.5) * 220;
+        const destinationY = (Math.random() - 0.6) * 220;
         confetti.style.setProperty('--x', `${destinationX}px`);
         confetti.style.setProperty('--y', `${destinationY}px`);
-        confetti.style.setProperty('--r', `${rotation}deg`);
+        confetti.style.setProperty('--r', `${Math.random() * 360}deg`);
         
-        document.body.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 1200);
+        container.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 600);
+    }
+    document.body.appendChild(container);
+}
+
+// Ch 1 Click Interaction
+document.querySelectorAll('.promise-item').forEach(item => {
+    item.addEventListener('click', (e) => burstConfetti(e.clientX, e.clientY));
+});
+
+// Ch 2 Open Document Envelope
+function openEnvelope() {
+    const env = document.querySelector('.envelope-wrapper');
+    if (!env.classList.contains('open')) {
+        env.classList.add('open');
+        const r = env.getBoundingClientRect();
+        burstConfetti(r.left + r.width / 2, r.top + r.height / 3);
+        setTimeout(() => document.getElementById('btn-to-ch3').classList.remove('hidden'), 350);
     }
 }
 
-// Chapter 2 Interaction
-function openEnvelope() {
-    const envelope = document.querySelector('.envelope-wrapper');
-    envelope.classList.add('open');
-    setTimeout(() => {
-        document.getElementById('btn-to-ch3').classList.remove('hidden');
-    }, 600);
-}
-
-// Chapter 3 Mechanics
-let escapeCount = 0;
-const maxEscapes = 5; 
-
+// Ch 3 Physics Target Path Chase
+let escapeCount = 0; const maxEscapes = 3;
 function flyAway() {
     const heart = document.getElementById('heart-target');
-    const hint = document.getElementById('game-hint');
-    
     if (escapeCount < maxEscapes) {
-        const randomX = Math.floor(Math.random() * 70) + 15;
-        const randomY = Math.floor(Math.random() * 60) + 15;
-        
-        heart.style.left = `${randomX}%`;
-        heart.style.top = `${randomY}%`;
-        
+        heart.style.left = `${Math.floor(Math.random() * 50) + 25}%`;
+        heart.style.top = `${Math.floor(Math.random() * 40) + 30}%`;
         escapeCount++;
-        if (escapeCount === 2) hint.innerText = "It's running wild! Try again! 😂";
-        if (escapeCount === 4) hint.innerText = "Just a little closer... ❤️";
     }
 }
-
-function catchHeart(event) {
-    const heart = document.getElementById('heart-target');
-    const hint = document.getElementById('game-hint');
-    const nextBtn = document.getElementById('btn-to-ch4');
-    
-    if(event) burstConfetti(event.clientX, event.clientY);
-    
-    escapeCount = maxEscapes; 
-    heart.style.transform = "translate(-50%, -50%) rotate(-45deg) scale(1.4)";
-    hint.innerHTML = "<strong>You caught it!</strong> <em>'My heart belongs to you anyway.'</em> 💖";
-    hint.style.color = "#d45d79";
-    nextBtn.classList.remove('hidden');
+function catchHeart(e) {
+    if(e) burstConfetti(e.clientX, e.clientY);
+    escapeCount = maxEscapes;
+    document.getElementById('heart-target').style.transform = "translate3d(-50%, -50%, 0) rotate(-45deg) scale(1.25)";
+    document.getElementById('game-hint').innerHTML = "Held securely close within my soul.";
+    document.getElementById('btn-to-ch4').classList.remove('hidden');
 }
 
-// Chapter 4 Mechanics
+// Ch 4 Box Core Logic
 const jarMessages = [
-    "I'm so incredibly proud of how hard you fight every single day. 🤍",
-    "A quick reminder: You are my absolute favorite human. 🍯",
-    "No matter how dark the clouds get, we'll clear them together. ☁️",
-    "You make my world so much brighter just by being in it. ✨",
-    "Take a deep breath. You are doing perfectly fine, my love. 🌊"
+    "You possess an incredible soul, and I am endlessly proud to walk beside you. ⚜️",
+    "My universe is entirely brighter, safer, and infinitely more beautiful because you exist. ✨",
+    "No matter what challenges the world brings, my heart remains steady and fixed on you. 🌹",
+    "Your presence is my absolute sanctuary. Take a gentle breath; we have each other. 🕊️"
 ];
 let shakeCount = 0;
-
 function shakeJar() {
     const jar = document.getElementById('love-jar');
     const note = document.getElementById('jar-note');
-    const nextBtn = document.getElementById('btn-to-ch5');
-    
     jar.classList.add('shake-animation');
     note.classList.remove('pop-up');
     
     setTimeout(() => {
         note.innerHTML = jarMessages[Math.floor(Math.random() * jarMessages.length)];
-        note.classList.add('pop-up');
-        jar.classList.remove('shake-animation');
-        
+        note.classList.add('pop-up'); jar.classList.remove('shake-animation');
         shakeCount++;
-        if (shakeCount >= 3) nextBtn.classList.remove('hidden');
-    }, 400);
+        if (shakeCount >= 2) document.getElementById('btn-to-ch5').classList.remove('hidden');
+    }, 250);
 }
 
-// Chapter 5 Mechanics
-function dismissCloud(event) {
-    const cloud = document.getElementById('dark-cloud');
-    const sun = document.querySelector('.bright-sun');
-    const hint = document.getElementById('worry-hint');
-    const nextBtn = document.getElementById('btn-to-ch6');
-    
-    if(event) burstConfetti(event.clientX, event.clientY);
-    cloud.classList.add('cloud-fly-out');
-    
+// Ch 5 Weather Mitigation Mod
+function dismissCloud(e) {
+    if(e) burstConfetti(e.clientX, e.clientY);
+    document.getElementById('dark-cloud').classList.add('cloud-fly-out');
     setTimeout(() => {
-        sun.classList.add('reveal');
-        hint.innerHTML = "<strong>See?</strong> I will always be here to chase away your darkest days. ☀️";
-        hint.style.color = "#ffb300";
-        nextBtn.classList.remove('hidden');
-    }, 400);
+        document.querySelector('.bright-sun').classList.add('reveal');
+        document.getElementById('btn-to-ch6').classList.remove('hidden');
+    }, 250);
 }
 
-// Chapter 6 Mechanics
+// Ch 6 Memory Lane Multi-string Array
 const relationshipMemories = [
-    "✨ Page 1: The day you walked into my life and changed everything completely.",
-    "🧸 Page 2: All of those late-night talks where I realized you were my safe place.",
-    "🍕 Page 3: Every little laugh, inside joke, and silly argument we share.",
-    "❤️ Page 4: No matter the distance or how hard it gets, my heart stays right here with you."
+    "✨ Part I: The unforgettable moment our paths crossed, turning a regular day into history.",
+    "👑 Part II: The steady comfort of our midnight exchanges where our masks came down completely.",
+    "🌹 Part III: Every shared quiet moment, inside look, and unspoken promise built between us.",
+    "⚜️ Part IV: My heart is bound to yours permanently, choosing you without hesitation every single day."
 ];
 let currentPage = 0;
-
 function turnPage() {
-    const textElement = document.getElementById('memory-text');
-    const nextPageBtn = document.getElementById('btn-next-page');
-    const finishBtn = document.getElementById('btn-to-ch7');
-    
-    textElement.classList.add('page-flip-fade');
-    
+    const el = document.getElementById('memory-text');
+    el.classList.add('page-flip-fade');
     setTimeout(() => {
         currentPage++;
-        if (currentPage < relationshipMemories.length) {
-            textElement.innerText = relationshipMemories[currentPage];
-            textElement.classList.remove('page-flip-fade');
-        }
-        if (currentPage === relationshipMemories.length - 1) {
-            nextPageBtn.classList.add('hidden');
-            finishBtn.classList.remove('hidden');
-        }
-    }, 300);
+        if (currentPage < relationshipMemories.length) { el.innerText = relationshipMemories[currentPage]; el.classList.remove('page-flip-fade'); }
+        if (currentPage === relationshipMemories.length - 1) { document.getElementById('btn-next-page').classList.add('hidden'); document.getElementById('btn-to-ch7').classList.remove('hidden'); }
+    }, 150);
 }
 
-// Chapter 7: Pizza Topping Machine (NEW!)
-let toppingCounter = 0;
-function addIngredient(emoji) {
-    const zone = document.getElementById('pizza-toppings-zone');
-    const nextBtn = document.getElementById('btn-to-ch8');
-    
-    const topping = document.createElement('div');
-    topping.classList.add('placed-topping');
-    topping.innerText = emoji;
-    
-    // Spread toppings around pizza base surface area coordinates smoothly
-    topping.style.left = Math.floor(Math.random() * 70) + 15 + '%';
-    topping.style.top = Math.floor(Math.random() * 70) + 15 + '%';
-    
-    zone.appendChild(topping);
-    toppingCounter++;
-    
-    if (toppingCounter >= 4) {
-        nextBtn.classList.remove('hidden');
+// NEW! Ch 7 Premium Sanctuary Lock Engine
+let keyEscapes = 0; const maxKeyEscapes = 3;
+function floatKey() {
+    const key = document.getElementById('skeleton-key');
+    if (keyEscapes < maxKeyEscapes) {
+        key.style.left = `${Math.floor(Math.random() * 55) + 20}%`;
+        key.style.top = `${Math.floor(Math.random() * 50) + 20}%`;
+        keyEscapes++;
     }
 }
-
-// Chapter 8: Playful Quiz Logic (NEW!)
-function checkQuizAnswer(isCorrect, element) {
-    const feedback = document.getElementById('quiz-feedback');
-    const nextBtn = document.getElementById('btn-to-ch9');
-    
-    // Reset styling for options
-    document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
-        btn.style.borderColor = "#eee";
-        btn.style.background = "#fff";
-    });
-
-    if (isCorrect) {
-        element.style.borderColor = "#2b8a3e";
-        element.style.background = "#ebfbee";
-        feedback.innerText = "Correct! Spot on! 🥰 Safe and sound right next to you.";
-        feedback.style.color = "#2b8a3e";
-        nextBtn.classList.remove('hidden');
-    } else {
-        element.style.borderColor = "#c92a2a";
-        element.style.background = "#fff5f5";
-        feedback.innerText = "Wrong option! Try again, I know you know this! 😂😜";
-        feedback.style.color = "#c92a2a";
-    }
+function insertKey(e) {
+    if(e) burstConfetti(e.clientX, e.clientY);
+    keyEscapes = maxKeyEscapes;
+    const key = document.getElementById('skeleton-key');
+    key.style.left = "50%"; key.style.top = "50%";
+    key.style.transform = "translate3d(-50%, -50%, 0) scale(1.2)";
+    document.querySelector('.lock-keyhole-target').innerText = "🔓";
+    document.getElementById('lock-hint').innerHTML = "<strong>Unlocked!</strong> My inner world is completely yours to hold. ⚜️";
+    document.getElementById('btn-to-ch8').classList.remove('hidden');
 }
 
-// Chapter 9: Final Coupon Activation (NEW!)
+// NEW! Ch 8 Premium Record Stylus Engine
+let needleEscapes = 0; const maxNeedleEscapes = 3;
+function floatNeedle() {
+    const needle = document.getElementById('record-needle');
+    if (needleEscapes < maxNeedleEscapes) {
+        needle.style.left = `${Math.floor(Math.random() * 55) + 20}%`;
+        needle.style.top = `${Math.floor(Math.random() * 50) + 15}%`;
+        needleEscapes++;
+    }
+}
+function dropNeedle(e) {
+    if(e) burstConfetti(e.clientX, e.clientY);
+    needleEscapes = maxNeedleEscapes;
+    const needle = document.getElementById('record-needle');
+    needle.style.left = "50%"; needle.style.top = "40%";
+    needle.style.transform = "translate3d(-50%, -50%, 0) scale(1.15) rotate(15deg)";
+    document.getElementById('record-hint').innerHTML = "<strong>Playing:</strong> Our thoughts are aligned in a beautiful midnight symphony. 🎵";
+    document.getElementById('btn-to-ch9').classList.remove('hidden');
+}
+
+// Ch 9 Verification Card Flipping Monitor
+function checkAllFlips() {
+    const flippedCount = document.querySelectorAll('.flip-card.flipped').length;
+    if(flippedCount >= 2) document.getElementById('btn-to-ch10').classList.remove('hidden');
+}
+
+// Ch 10 Ticket Engine Activation
 function claimCoupon(event) {
     burstConfetti(event.clientX, event.clientY);
-    document.getElementById('coupon-card').style.background = "linear-gradient(135deg, #ffdeeb 0%, #fcc419 100%)";
+    document.getElementById('coupon-card').style.transform = "scale3d(0.98, 0.98, 1)";
+    setTimeout(() => document.getElementById('coupon-card').style.transform = "none", 120);
 }
