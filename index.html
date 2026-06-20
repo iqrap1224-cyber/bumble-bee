@@ -30,9 +30,9 @@
                     <div class="front pocket"></div>
                     <div class="letter">
                         <div class="words">
-                            <p>To My Favorite Person,</p>
-                            <p>Sometimes words fall short of explaining the depth of what you mean to me. You are my calm sanctuary, my finest thought, and the sweetest light in my life. Thank you for simply being you.</p>
-                            <p>Yours entirely, always. ❤️</p>
+                            <p><strong>To My Favorite Person,</strong></p>
+                            <p>Sometimes words fall short of explaining the depth of what you mean to me. You are my calm sanctuary, my finest thought, and the sweetest light in my life.</p>
+                            <p>Thank you for simply being you. Yours entirely, always. ❤️</p>
                         </div>
                     </div>
                 </div>
@@ -92,20 +92,27 @@
 
     <section id="chapter-7" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Send An Infinite Embrace 🕊️</h2>
-            <p id="pet-hint" class="game-hint">Press down on the emblem to charge and deliver a deep, loving squeeze.</p>
-            <div id="virtual-pet" onclick="petAnimal()">🔱</div>
-            <div class="progress-bar-container"><div id="pet-progress"></div></div>
-            <button id="btn-to-ch8" class="btn-action hidden" onclick="nextChapter(8)">Embrace Received</button>
+            <h2 class="subtitle">The Sanctuary Key 🗝️</h2>
+            <p id="lock-hint" class="game-hint">Slide or capture the shifting gold key into the sanctuary lock matrix below.</p>
+            <div class="lock-chamber-arena">
+                <div class="lock-keyhole-target">🔒</div>
+                <div id="skeleton-key" onclick="insertKey(event)" onmouseover="floatKey()" ontouchstart="floatKey()">🗝️</div>
+            </div>
+            <button id="btn-to-ch8" class="btn-action hidden" onclick="nextChapter(8)">Unlocked Entirely ➡️</button>
         </div>
     </section>
 
     <section id="chapter-8" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Erase Everyday Doubts 🪐</h2>
-            <p class="game-hint">Tap each dark crystal bubble to clear away every single insecurity from your path.</p>
-            <div class="bubble-grid" id="bubble-wrap-grid"></div>
-            <button id="btn-to-ch9" class="btn-action hidden" onclick="nextChapter(9)">All Doubts Erased</button>
+            <h2 class="subtitle">Our Midnight Groove 🧭</h2>
+            <p id="record-hint" class="game-hint">Gently capture the moving stylus arm to lower it smoothly onto the turning vinyl record.</p>
+            <div class="gramophone-arena">
+                <div class="vinyl-record-disc">
+                    <div class="vinyl-center-label">⚜️</div>
+                </div>
+                <div id="record-needle" onclick="dropNeedle(event)" onmouseover="floatNeedle()" ontouchstart="floatNeedle()">🧭</div>
+            </div>
+            <button id="btn-to-ch9" class="btn-action hidden" onclick="nextChapter(9)">Lyrical Symphony ➡️</button>
         </div>
     </section>
 
@@ -115,13 +122,22 @@
             <p class="game-hint">Reveal the deep truths that anchor my loyalty to you.</p>
             <div class="flip-board">
                 <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
-                    <div class="flip-card-inner"><div class="flip-card-front">⚜️ Pillar I</div><div class="flip-card-back">Your quiet moments or difficult days will never threaten my presence. I am your anchor. 🩹</div></div>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">⚜️ Pillar I</div>
+                        <div class="flip-card-back">Your quiet moments or difficult days will never threaten my presence. I am your absolute anchor. 🩹</div>
+                    </div>
                 </div>
                 <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
-                    <div class="flip-card-inner"><div class="flip-card-front">⚜️ Pillar II</div><div class="flip-card-back">I admire you just as deeply when you are silent as when you are radiant. You are safe. 👑</div></div>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">⚜️ Pillar II</div>
+                        <div class="flip-card-back">I admire you just as deeply when you are completely silent as when you are radiant. You are safe. 👑</div>
+                    </div>
                 </div>
                 <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
-                    <div class="flip-card-inner"><div class="flip-card-front">⚜️ Pillar III</div><div class="flip-card-back">You do not have to achieve perfection to deserve my love. You are already enough. 🌸</div></div>
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">⚜️ Pillar III</div>
+                        <div class="flip-card-back">You do not have to achieve perfection to deserve my love. You are already entirely enough. 🌸</div>
+                    </div>
                 </div>
             </div>
             <button id="btn-to-ch10" class="btn-action hidden" onclick="nextChapter(10)">Claim Invitation</button>
