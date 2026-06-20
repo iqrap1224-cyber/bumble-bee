@@ -1,128 +1,134 @@
-/* --- Base Theme Layout --- */
+/* --- Premium Theme Configuration --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
+
 body {
     margin: 0; padding: 0;
-    background: linear-gradient(135deg, #fff0f2 0%, #ffe3e8 100%);
-    font-family: 'Comfortaa', 'Georgia', serif; color: #5a4b4e;
+    background: radial-gradient(circle at center, #2c030b 0%, #120104 100%);
+    font-family: 'Montserrat', sans-serif; color: #f5f0eb;
     min-height: 100vh; overflow-x: hidden;
     display: flex; justify-content: center; align-items: center; position: relative;
+    -webkit-font-smoothing: antialiased;
 }
-.container { max-width: 500px; padding: 25px; margin: 0 auto; width: 100%; box-sizing: border-box; z-index: 5; }
+.container { max-width: 480px; padding: 25px; margin: 0 auto; width: 100%; box-sizing: border-box; z-index: 5; }
 .text-center { text-align: center; }
 
-/* --- Ambient Floating Particles --- */
+/* --- Optimized Hardware Accelerated Ambient Particles --- */
 .floating-particle {
-    position: absolute; bottom: -50px; font-size: 1.6rem; pointer-events: none; opacity: 0.5;
-    animation: floatUp 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; z-index: 1;
+    position: absolute; bottom: -50px; font-size: 1.2rem; pointer-events: none; opacity: 0.3;
+    transform: translate3d(0,0,0);
+    animation: floatUp 7s linear infinite; z-index: 1;
+    will-change: transform, opacity;
 }
 @keyframes floatUp {
-    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.5; }
-    100% { transform: translateY(-105vh) translateX(40px) rotate(360deg); opacity: 0; }
+    0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.3; }
+    100% { transform: translate3d(30px, -105vh, 0) rotate(360deg); opacity: 0; }
 }
-.confetti { position: absolute; pointer-events: none; z-index: 999; animation: confettiFall 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards; }
+.confetti { position: absolute; pointer-events: none; z-index: 999; animation: confettiFall 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards; will-change: transform, opacity; }
 @keyframes confettiFall {
-    0% { transform: translate(0, 0) scale(1.2); opacity: 1; }
-    100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(0.6); opacity: 0; }
+    0% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+    100% { transform: translate3d(var(--x), var(--y), 0) rotate(var(--r)) scale(0.5); opacity: 0; }
 }
 
-/* --- Smooth Chapter Transitions (Hardware Accelerated) --- */
-.chapter { display: none !important; opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-in-out; width: 100%; transform: scale(0.95); will-change: transform, opacity; }
-.chapter.active { display: flex !important; flex-direction: column; align-items: center; justify-content: center; opacity: 1; transform: scale(1); }
+/* --- High Performance Screen Flow --- */
+.chapter { display: none !important; opacity: 0; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s linear; width: 100%; transform: scale(0.97) translate3d(0,0,0); will-change: transform, opacity; }
+.chapter.active { display: flex !important; flex-direction: column; align-items: center; justify-content: center; opacity: 1; transform: scale(1) translate3d(0,0,0); }
 
-/* --- Global Cute Styling --- */
-.title { font-size: 2.3rem; color: #ff6b8b; margin-bottom: 2rem; font-weight: bold; }
-.subtitle { font-size: 1.9rem; color: #ff6b8b; margin-bottom: 1.5rem; font-weight: bold; }
-.game-hint { font-size: 1.05rem; color: #7d6b6e; font-style: italic; margin-bottom: 20px; }
+/* --- Luxury Visual Components --- */
+.title { font-family: 'Cinzel', serif; font-size: 2.1rem; color: #d4af37; margin-bottom: 2rem; font-weight: 600; letter-spacing: 2px; }
+.subtitle { font-family: 'Cinzel', serif; font-size: 1.7rem; color: #d4af37; margin-bottom: 1.5rem; font-weight: 600; letter-spacing: 1px; }
+.game-hint { font-size: 0.95rem; color: #c4b5b7; font-style: italic; margin-bottom: 25px; letter-spacing: 0.5px; }
 
 .promise-item {
-    background: rgba(255, 255, 255, 0.95); padding: 18px 22px; margin: 15px 0; border-radius: 20px;
-    box-shadow: 0 6px 18px rgba(255,107,139,0.06); font-size: 1.1rem; line-height: 1.6;
-    cursor: pointer; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease; border: 2px solid transparent;
+    background: linear-gradient(135deg, #1f050a 0%, #140205 100%); padding: 22px; margin: 18px 0; border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4); font-size: 1rem; line-height: 1.7; color: #f5f0eb;
+    cursor: pointer; transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.25s ease; border: 1px solid #3d0c15;
 }
-.promise-item:hover { transform: translateY(-4px) scale(1.02); border-color: #ffb3c1; background: #fffbfb; }
+.promise-item:hover { transform: translate3d(0, -4px, 0); border-color: #d4af37; }
 
 .btn-action {
-    background: #ff6b8b; color: white; border: none; padding: 14px 35px; font-size: 1.15rem;
-    border-radius: 30px; cursor: pointer; box-shadow: 0 6px 15px rgba(255, 107, 139, 0.2);
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease; margin-top: 25px; font-weight: bold;
+    background: linear-gradient(135deg, #8a0f29 0%, #5c0618 100%); color: #fff8f0; border: 1px solid #d4af37; padding: 14px 40px; font-size: 1.05rem;
+    border-radius: 4px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.3); letter-spacing: 1.5px; text-transform: uppercase;
+    font-family: 'Cinzel', serif; transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s ease; margin-top: 25px;
 }
-.btn-action:hover { transform: scale(1.05); background: #ff5276; }
+.btn-action:hover { transform: translate3d(0, -2px, 0) scale(1.02); background: linear-gradient(135deg, #a61b39 0%, #700a20 100%); }
 .hidden { display: none !important; opacity: 0; }
 
 .game-container, .jar-container, .worry-container, .memory-container, .interactive-panel {
-    background: white; padding: 35px; border-radius: 28px; box-shadow: 0 12px 40px rgba(255, 137, 161, 0.06); width: 100%; box-sizing: border-box; border: 3px solid #ffe3e8;
+    background: linear-gradient(180deg, #1a0307 0%, #0d0103 100%); padding: 35px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; border: 1px solid #3d0c15;
 }
 
-/* --- Ch 2: Envelope --- */
-.envelope-wrapper { position: relative; height: 250px; margin: 30px auto; cursor: pointer; width: 280px; transition: transform 0.2s ease; }
+/* --- Ch 2: Sleek Envelope Vault --- */
+.envelope-wrapper { position: relative; height: 260px; margin: 20px auto; cursor: pointer; width: 280px; transition: transform 0.2s ease; }
 .envelope-wrapper:hover { transform: scale(1.02); }
-.envelope { position: relative; width: 280px; height: 180px; background: #fff3f5; border-radius: 12px; }
+.envelope { position: relative; width: 280px; height: 180px; background: #26050c; border-radius: 4px; border: 1px solid #4a0d19; }
 .envelope .front { position: absolute; width: 0; height: 0; z-index: 10; }
-.envelope .flap { border-left: 140px solid transparent; border-right: 140px solid transparent; border-top: 98px solid #ffccd5; transform-origin: top; transition: transform 0.4s ease; z-index: 30; border-radius: 12px 12px 0 0; }
-.envelope .pocket { border-left: 140px solid #fff0f2; border-right: 140px solid #fff0f2; border-bottom: 90px solid #ffccd5; bottom: 0; z-index: 20; border-radius: 0 0 12px 12px; }
-.envelope .letter { position: absolute; background: #ffffff; width: 250px; height: 140px; left: 15px; bottom: 10px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 15; padding: 18px; box-sizing: border-box; overflow: hidden; border-radius: 8px; border: 1px dashed #ffb3c1; }
-.envelope .letter .words { font-size: 0.85rem; line-height: 1.5; text-align: left; color: #6b5256; }
+.envelope .flap { border-left: 140px solid transparent; border-right: 140px solid transparent; border-top: 98px solid #420814; transform-origin: top; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 30; }
+.envelope .pocket { border-left: 140px solid #210309; border-right: 140px solid #210309; border-bottom: 90px solid #36050f; bottom: 0; z-index: 20; }
+.envelope .letter { position: absolute; background: #fffdfa; width: 250px; height: 140px; left: 15px; bottom: 10px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 15; padding: 20px; box-sizing: border-box; overflow: hidden; border-radius: 2px; box-shadow: inset 0 0 20px rgba(0,0,0,0.05); }
+.envelope .letter .words { font-size: 0.85rem; line-height: 1.6; text-align: left; color: #1f0207; font-family: 'Montserrat', sans-serif; font-weight: 400; }
 .envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 5; }
-.envelope-wrapper.open .letter { transform: translateY(-110px); height: 180px; z-index: 25; }
+.envelope-wrapper.open .letter { transform: translate3d(0, -110px, 0); height: 200px; z-index: 25; border: 1px solid #d4af37; }
 
-/* --- Ch 3: Elastic Catch Heart --- */
-.game-area { position: relative; width: 100%; height: 280px; background: #fffdfd; border-radius: 24px; border: 3px dashed #ffb3c1; margin: 10px auto 20px auto; overflow: hidden; }
-#heart-target { position: absolute; width: 35px; height: 35px; background-color: #ff6b8b; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-45deg); cursor: pointer; transition: left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 100; will-change: left, top; }
-#heart-target::before, #heart-target::after { content: ""; position: absolute; width: 35px; height: 35px; background-color: #ff6b8b; border-radius: 50%; }
+/* --- Ch 3: Fluid Target Engine --- */
+.game-area { position: relative; width: 100%; height: 280px; background: #0d0103; border-radius: 12px; border: 1px solid #3d0c15; margin: 10px auto 20px auto; overflow: hidden; }
+#heart-target { position: absolute; width: 35px; height: 35px; background-color: #d4af37; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0) rotate(-45deg); cursor: pointer; transition: left 0.25s cubic-bezier(0.25, 1, 0.5, 1), top 0.25s cubic-bezier(0.25, 1, 0.5, 1); z-index: 100; will-change: left, top; }
+#heart-target::before, #heart-target::after { content: ""; position: absolute; width: 35px; height: 35px; background-color: #d4af37; border-radius: 50%; }
 #heart-target::before { top: -18px; left: 0; }
 #heart-target::after { left: 18px; top: 0; }
 
-/* --- Ch 4: Boop Jar --- */
-.jar-wrapper { position: relative; height: 250px; margin: 20px auto; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
-#love-jar { font-size: 7.5rem; cursor: pointer; z-index: 10; transition: transform 0.1s ease; user-select: none; }
-.hidden-note { position: absolute; width: 230px; background: #fffdf9; border: 2px dashed #ffb3c1; padding: 15px; border-radius: 16px; font-size: 1rem; color: #5a4b4e; left: 50%; transform: translate(-50%, 0) scale(0.8); bottom: 40px; z-index: 5; opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; box-sizing: border-box; }
-.hidden-note.pop-up { opacity: 1; transform: translate(-50%, -130px) scale(1); z-index: 20; }
-@keyframes jarShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
-.shake-animation { animation: jarShake 0.3s ease-in-out; }
+/* --- Ch 4: Keepsake Note System --- */
+.jar-wrapper { position: relative; height: 220px; margin: 20px auto; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
+#love-jar { font-size: 6rem; cursor: pointer; z-index: 10; transition: transform 0.1s ease; user-select: none; filter: drop-shadow(0 0 15px rgba(212,175,55,0.3)); }
+.hidden-note { position: absolute; width: 260px; background: #fffdfa; border-left: 4px solid #d4af37; padding: 20px; border-radius: 4px; font-size: 0.95rem; color: #1f0207; left: 50%; transform: translate3d(-50%, 0, 0) scale(0.8); bottom: 40px; z-index: 5; opacity: 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s linear; box-sizing: border-box; font-weight: 400; line-height: 1.6; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+.hidden-note.pop-up { opacity: 1; transform: translate3d(-50%, -120px, 0) scale(1); z-index: 20; }
+@keyframes jarShake { 0%, 100% { transform: rotate(0deg); } 30% { transform: rotate(-5deg); } 70% { transform: rotate(5deg); } }
+.shake-animation { animation: jarShake 0.25s ease-in-out; }
 
 /* --- Ch 5: Weather System --- */
-.sky-arena { position: relative; width: 100%; height: 240px; background: linear-gradient(to bottom, #ffeef2, #fff6f8); border-radius: 24px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.bright-sun { font-size: 5.5rem; z-index: 1; opacity: 0; transform: scale(0.5); transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; }
-.bright-sun.reveal { opacity: 1; transform: scale(1.1); }
-#dark-cloud { position: absolute; font-size: 6.5rem; cursor: pointer; z-index: 5; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; user-select: none; will-change: transform, opacity; }
-.cloud-fly-out { transform: translate(300px, -200px) scale(0.2); opacity: 0; }
+.sky-arena { position: relative; width: 100%; height: 240px; background: #080002; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid #24050b; }
+.bright-sun { font-size: 4rem; z-index: 1; opacity: 0; transform: scale(0.6) translate3d(0,0,0); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s linear; color: #d4af37; text-shadow: 0 0 20px rgba(212,175,55,0.6); }
+.bright-sun.reveal { opacity: 1; transform: scale(1.1) translate3d(0,0,0); }
+#dark-cloud { position: absolute; font-size: 5.5rem; cursor: pointer; z-index: 5; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s linear; user-select: none; will-change: transform, opacity; }
+.cloud-fly-out { transform: translate3d(250px, -180px, 0) scale(0.2); opacity: 0; }
 
-/* --- Ch 6: Scrapbook Flips --- */
-.book-wrapper { width: 100%; max-width: 420px; height: 180px; background: #fffdfb; border: 3px solid #ffe3e8; border-left: 10px solid #ff6b8b; border-radius: 6px 20px 20px 6px; margin: 20px auto; padding: 25px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
-.memory-content { font-size: 1.1rem; line-height: 1.6; font-style: italic; color: #6b5256; transition: opacity 0.2s ease; }
+/* --- Ch 6: Scrapbook Display Structure --- */
+.book-wrapper { width: 100%; max-width: 420px; height: 180px; background: #fffdfa; border-left: 6px solid #d4af37; border-radius: 2px; margin: 20px auto; padding: 25px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+.memory-content { font-size: 1rem; line-height: 1.7; font-style: italic; color: #1f0207; transition: opacity 0.2s linear; font-weight: 400; }
 .page-flip-fade { opacity: 0; }
 
-/* --- Ch 7: Hug Progress Panel --- */
-#virtual-pet { font-size: 6.5rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.5); user-select: none; margin: 15px 0; display: inline-block; }
-#virtual-pet.purr { transform: scale(1.2) rotate(5deg); }
-.progress-bar-container { background: #ffeef1; width: 100%; height: 14px; border-radius: 10px; overflow: hidden; margin-top: 15px; border: 1px solid #ffccd5; }
-#pet-progress { background: linear-gradient(90deg, #ff6b8b, #ff8da5); width: 0%; height: 100%; transition: width 0.2s ease; }
+/* --- Ch 7: Luxury Pulse Meter --- */
+#virtual-pet { font-size: 5.5rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); user-select: none; margin: 15px 0; display: inline-block; filter: drop-shadow(0 0 10px rgba(212,175,55,0.2)); }
+#virtual-pet.purr { transform: scale(1.15) rotate(3deg); }
+.progress-bar-container { background: #1f050a; width: 100%; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 20px; border: 1px solid #3d0c15; }
+#pet-progress { background: linear-gradient(90deg, #d4af37, #f3e5ab); width: 0%; height: 100%; transition: width 0.25s ease; }
 
-/* --- Ch 8: Bubble Grid --- */
+/* --- Ch 8: Crystal Matrix Field --- */
 .bubble-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 250px; margin: 20px auto; }
-.bubble-item { width: 52px; height: 52px; background: #ffeef1; border-radius: 50%; border: 2px solid #ffccd5; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: transform 0.15s ease, background 0.15s ease; }
-.bubble-item:active { transform: scale(0.85); }
-.bubble-item.popped { background: #f8fafc; border-color: #e2e8f0; transform: scale(0.9); pointer-events: none; }
+.bubble-item { width: 52px; height: 52px; background: #24050b; border-radius: 8px; border: 1px solid #4a0d19; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: transform 0.1s ease, background 0.1s ease; }
+.bubble-item:active { transform: scale(0.9); }
+.bubble-item.popped { background: #0d0103; border-color: #1f050a; transform: scale(0.92); pointer-events: none; opacity: 0.4; }
 
-/* --- Ch 9: Card Flips --- */
+/* --- Ch 9: Pillar Luxury Flips --- */
 .flip-board { display: flex; justify-content: center; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
-.flip-card { background-color: transparent; width: 130px; height: 110px; perspective: 1000px; cursor: pointer; }
-.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+.flip-card { background-color: transparent; width: 130px; height: 120px; perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform-style: preserve-3d; }
 .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 18px; display: flex; align-items: center; justify-content: center; padding: 12px; box-sizing: border-box; font-size: 0.95rem; font-weight: bold; }
-.flip-card-front { background-color: #fff5f7; border: 2px dashed #ffccd5; color: #ff6b8b; }
-.flip-card-back { background-color: #fff0f3; border: 2px solid #ff6b8b; color: #ff6b8b; transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 14px; box-sizing: border-box; font-size: 0.95rem; font-weight: 500; }
+.flip-card-front { background-color: #1f050a; border: 1px dashed #d4af37; color: #d4af37; font-family: 'Cinzel', serif; }
+.flip-card-back { background-color: #fffdfa; border: 1px solid #d4af37; color: #1f0207; transform: rotateY(180deg); font-size: 0.8rem; line-height: 1.5; text-align: center; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
 
-/* --- Ch 10: Shimmer Ticket Passport --- */
+/* --- Ch 10: Premium Passport Slip --- */
 .love-coupon {
-    background: linear-gradient(135deg, #fff5f7 0%, #ffe3e8 100%);
-    border: 3px dashed #ff6b8b; padding: 25px; border-radius: 24px; max-width: 400px; margin: 30px auto; cursor: pointer; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #1f050a 0%, #120104 100%);
+    border: 1px solid #d4af37; padding: 30px; border-radius: 4px; max-width: 400px; margin: 30px auto; cursor: pointer; position: relative; overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 .love-coupon::before {
     content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg); animation: shimmer 3s infinite linear;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(212,175,55,0.2) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg); animation: shimmer 4s infinite linear;
 }
 @keyframes shimmer { 0% { left: -100%; } 100% { left: 150%; } }
-.coupon-header { font-size: 0.8rem; color: #ff6b8b; letter-spacing: 2px; font-weight: bold; }
-.coupon-title { font-size: 1.35rem; color: #d43f5e; margin: 15px 0; font-weight: bold; }
-.coupon-footer { font-size: 0.9rem; color: #7d6b6e; line-height: 1.5; }
+.coupon-header { font-family: 'Cinzel', serif; font-size: 0.8rem; color: #d4af37; letter-spacing: 2px; font-weight: 600; }
+.coupon-title { font-family: 'Cinzel', serif; font-size: 1.25rem; color: #fff8f0; margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; line-height: 1.5; }
+.coupon-footer { font-size: 0.85rem; color: #c4b5b7; line-height: 1.6; font-weight: 300; }
