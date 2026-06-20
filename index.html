@@ -3,154 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Cute Little Universe 🐝💖</title>
+    <title>Our Eternal Symphony ✨</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- CHAPTER 1: MY SOLEMN PROMISES -->
     <section id="chapter-1" class="chapter active">
         <div class="container text-center">
-            <h1 class="title">My Pinky Promises To You 👑</h1>
+            <h1 class="title">My Sacred Promises To You</h1>
             <div class="promises-list">
-                <div class="promise-item">✨ I promise to be your warm blanket when the world gets cold.</div>
-                <div class="promise-item">🐝 I promise to always listen, even to your quietest thoughts.</div>
-                <div class="promise-item">❤️ I promise to choose you, love you, and squish you forever.</div>
+                <div class="promise-item">I promise to be your calm harbor whenever the chaos of the world becomes too loud. ✨</div>
+                <div class="promise-item">I promise to guard your peace, protect your heart, and honor your beautiful soul. 🕊️</div>
+                <div class="promise-item">I promise to choose you deliberately, completely, and unconditionally through every season of life. 🌹</div>
             </div>
-            <button class="btn-action" onclick="nextChapter(2)">I Accept! 🍯</button>
+            <button class="btn-action" onclick="nextChapter(2)">I Accept Your Heart</button>
         </div>
     </section>
 
-    <!-- CHAPTER 2: THE SECRETS OF MY LETTER -->
     <section id="chapter-2" class="chapter">
         <div class="container text-center">
-            <h2 class="subtitle">A Tiny Secret Note... ✉️</h2>
-            <p class="game-hint">Gently tap the wax seal to slide open my note!</p>
+            <h2 class="subtitle">A Midnight Confession... ✉️</h2>
+            <p class="game-hint">Gently press the gold seal to unlock my letter to you.</p>
             <div class="envelope-wrapper" onclick="openEnvelope()">
                 <div class="envelope">
                     <div class="front flap"></div>
                     <div class="front pocket"></div>
                     <div class="letter">
                         <div class="words">
-                            <p>Hi cutie,</p>
-                            <p>Just a quick reminder that you are my favorite human bean. You bring so much sunshine into my days, and I love you more than all the stars in the sky! Always here. Always yours.</p>
-                            <p>Forever. ❤️</p>
+                            <p>To My Favorite Person,</p>
+                            <p>Sometimes words fall short of explaining the depth of what you mean to me. You are my calm sanctuary, my finest thought, and the sweetest light in my life. Thank you for simply being you.</p>
+                            <p>Yours entirely, always. ❤️</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <button id="btn-to-ch3" class="btn-action hidden" onclick="nextChapter(3)">My heart melted ➡️</button>
+            <button id="btn-to-ch3" class="btn-action hidden" onclick="nextChapter(3)">Read & Cherished</button>
         </div>
     </section>
 
-    <!-- CHAPTER 3: CATCH MY HEART ❤️ -->
     <section id="chapter-3" class="chapter">
         <div class="container text-center game-container">
-            <h2 class="subtitle">Catch My Fluttering Heart! 💝</h2>
-            <p id="game-hint" class="game-hint">It’s shy! Give it a soft poke to catch it...</p>
+            <h2 class="subtitle">A Heart Tilted Toward You 💝</h2>
+            <p id="game-hint" class="game-hint">My heart gravitates toward you... touch it to draw it close.</p>
             <div class="game-area">
                 <div id="heart-target" onclick="catchHeart(event)" onmouseover="flyAway()" ontouchstart="flyAway()"></div>
             </div>
-            <button id="btn-to-ch4" class="btn-action hidden" onclick="nextChapter(4)">Got it! Safe with me 🥰</button>
+            <button id="btn-to-ch4" class="btn-action hidden" onclick="nextChapter(4)">Held Close Forever</button>
         </div>
     </section>
 
-    <!-- CHAPTER 4: THE KEEPSAKE JAR 🫙 -->
     <section id="chapter-4" class="chapter">
         <div class="container text-center jar-container">
-            <h2 class="subtitle">The Magical Love Jar 🫙</h2>
-            <p id="jar-hint" class="game-hint">Boop the jar to pop loose a warm reminder!</p>
+            <h2 class="subtitle">The Keepsake Vault 💎</h2>
+            <p id="jar-hint" class="game-hint">Tap the vault crystal to reveal a hidden thought.</p>
             <div class="jar-wrapper" onclick="shakeJar()">
-                <div id="love-jar">🫙</div>
-                <div id="jar-note" class="hidden-note">Boop!</div>
+                <div id="love-jar">💎</div>
+                <div id="jar-note" class="hidden-note">Touch to open...</div>
             </div>
-            <button id="btn-to-ch5" class="btn-action hidden" onclick="nextChapter(5)">Aww, next! ➡️</button>
+            <button id="btn-to-ch5" class="btn-action hidden" onclick="nextChapter(5)">Enter My Thoughts</button>
         </div>
     </section>
 
-    <!-- CHAPTER 5: CHASING SHADOWS AWAY ☁️ -->
     <section id="chapter-5" class="chapter">
         <div class="container text-center worry-container">
-            <h2 class="subtitle">Shoo Away The Gloom! ☁️</h2>
-            <p id="worry-hint" class="game-hint">Tap the grumpy cloud to turn it into bright pure sunshine!</p>
+            <h2 class="subtitle">Dissolving Tensions 🌌</h2>
+            <p id="worry-hint" class="game-hint">Tap away the heavy mist to unveil our clear twilight sky.</p>
             <div class="sky-arena">
-                <div class="bright-sun">☀️</div>
-                <div id="dark-cloud" onclick="dismissCloud(event)">☁️</div>
+                <div class="bright-sun">✨</div>
+                <div id="dark-cloud" onclick="dismissCloud(event)">🌫️</div>
             </div>
-            <button id="btn-to-ch6" class="btn-action hidden" onclick="nextChapter(6)">Yay, blue skies! ➡️</button>
+            <button id="btn-to-ch6" class="btn-action hidden" onclick="nextChapter(6)">The Sky Clears</button>
         </div>
     </section>
 
-    <!-- CHAPTER 6: OUR SCRAPBOOK 📖 -->
     <section id="chapter-6" class="chapter">
         <div class="container text-center memory-container">
-            <h2 class="subtitle">Little Storybook of Us 📖</h2>
-            <p class="game-hint">Flip through our happy pages...</p>
+            <h2 class="subtitle">The Archive of Us 📖</h2>
+            <p class="game-hint">Turn the gilded pages of our journey...</p>
             <div class="book-wrapper">
                 <div class="book-page">
-                    <p id="memory-text" class="memory-content">✨ Page 1: The magical day you wandered into my life and made everything sweeter.</p>
+                    <p id="memory-text" class="memory-content">✨ Part I: The unforgettable moment our paths crossed, turning a regular day into history.</p>
                 </div>
             </div>
-            <button id="btn-next-page" class="btn-action" onclick="turnPage()">Flip Page ➡️</button>
-            <button id="btn-to-ch7" class="btn-action hidden" onclick="nextChapter(7)">To the future! ➡️</button>
+            <button id="btn-next-page" class="btn-action" onclick="turnPage()">Next Page</button>
+            <button id="btn-to-ch7" class="btn-action hidden" onclick="nextChapter(7)">To Tomorrow</button>
         </div>
     </section>
 
-    <!-- NEW! CHAPTER 7: SEND ME A DIGITAL HUG 🤗 -->
     <section id="chapter-7" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Send Me A Giant Squeeze! 🤗</h2>
-            <p id="pet-hint" class="game-hint">Tap our plushy heart repeatedly to load up a big warm hug!</p>
-            <div id="virtual-pet" onclick="petAnimal()">💝</div>
+            <h2 class="subtitle">Send An Infinite Embrace 🕊️</h2>
+            <p id="pet-hint" class="game-hint">Press down on the emblem to charge and deliver a deep, loving squeeze.</p>
+            <div id="virtual-pet" onclick="petAnimal()">🔱</div>
             <div class="progress-bar-container"><div id="pet-progress"></div></div>
-            <button id="btn-to-ch8" class="btn-action hidden" onclick="nextChapter(8)">Hug received! ➡️</button>
+            <button id="btn-to-ch8" class="btn-action hidden" onclick="nextChapter(8)">Embrace Received</button>
         </div>
     </section>
 
-    <!-- NEW! CHAPTER 8: POP AWAY THE WORRIES 🧼 -->
     <section id="chapter-8" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Pop Away The Tiny Worries 🧼</h2>
-            <p class="game-hint">Pop all 8 bubbly hearts to release happy thoughts!</p>
+            <h2 class="subtitle">Erase Everyday Doubts 🪐</h2>
+            <p class="game-hint">Tap each dark crystal bubble to clear away every single insecurity from your path.</p>
             <div class="bubble-grid" id="bubble-wrap-grid"></div>
-            <button id="btn-to-ch9" class="btn-action hidden" onclick="nextChapter(9)">All stress popped! ➡️</button>
+            <button id="btn-to-ch9" class="btn-action hidden" onclick="nextChapter(9)">All Doubts Erased</button>
         </div>
     </section>
 
-    <!-- NEW! CHAPTER 9: REVEAL MY LOVE RULES 📝 -->
     <section id="chapter-9" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">My Unchanging Rules For Us 📝</h2>
-            <p class="game-hint">Flip over all three love cards to reveal my promises to you.</p>
+            <h2 class="subtitle">Unchanging Pillars of Us ⚜️</h2>
+            <p class="game-hint">Reveal the deep truths that anchor my loyalty to you.</p>
             <div class="flip-board">
                 <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
-                    <div class="flip-card-inner"><div class="flip-card-front">💗 Card 1</div><div class="flip-card-back">Your bad days won't make me leave. 🩹</div></div>
+                    <div class="flip-card-inner"><div class="flip-card-front">⚜️ Pillar I</div><div class="flip-card-back">Your quiet moments or difficult days will never threaten my presence. I am your anchor. 🩹</div></div>
                 </div>
                 <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
-                    <div class="flip-card-inner"><div class="flip-card-front">💗 Card 2</div><div class="flip-card-back">I love you even when you're quiet. 🤫</div></div>
+                    <div class="flip-card-inner"><div class="flip-card-front">⚜️ Pillar II</div><div class="flip-card-back">I admire you just as deeply when you are silent as when you are radiant. You are safe. 👑</div></div>
                 </div>
                 <div class="flip-card" onclick="this.classList.toggle('flipped'); checkAllFlips();">
-                    <div class="flip-card-inner"><div class="flip-card-front">💗 Card 3</div><div class="flip-card-back">You are perfectly enough as you are. 🌸</div></div>
+                    <div class="flip-card-inner"><div class="flip-card-front">⚜️ Pillar III</div><div class="flip-card-back">You do not have to achieve perfection to deserve my love. You are already enough. 🌸</div></div>
                 </div>
             </div>
-            <button id="btn-to-ch10" class="btn-action hidden" onclick="nextChapter(10)">See Your Grand Finale! 🎉</button>
+            <button id="btn-to-ch10" class="btn-action hidden" onclick="nextChapter(10)">Claim Invitation</button>
         </div>
     </section>
 
-    <!-- NEW! CHAPTER 10: CLAIM YOUR ETERNAL TICKETS 🎟️ -->
     <section id="chapter-10" class="chapter">
         <div class="container text-center interactive-panel">
-            <h2 class="subtitle">Your Permanent Passport Ticket! 🎟️</h2>
-            <p class="game-hint">You unlocked everything! Tap below to imprint your name onto the ticket stamp:</p>
+            <h2 class="subtitle">Your Eternal Love Certificate 🎟️</h2>
+            <p class="game-hint">You have completed our path. Touch your permanent passport below:</p>
             <div class="love-coupon" id="coupon-card" onclick="claimCoupon(event)">
-                <div class="coupon-header">COZY SOULMATE PASSPORT VALID FOREVER</div>
-                <div class="coupon-title">🎟️ 1 FREE INFINITE HUG & KISS COUPON</div>
-                <div class="coupon-footer">Redeemable whenever you need comfort. Fully backed by my whole heart. ❤️</div>
+                <div class="coupon-header">OFFICIAL SOULMATE PASSPORT</div>
+                <div class="coupon-title">🎟️ INFINITE REASSURANCE & SANCTUARY PASSPORT</div>
+                <div class="coupon-footer">This ticket guarantees open arms, premium comfort, and absolute devotion whenever you seek refuge. Backed eternally by my soul. ❤️</div>
             </div>
-            <button class="btn-action" style="background:#ff6b8b;" onclick="alert('I love you to the stars and back! Send me a screenshot of your passport to claim your endless supply of warm cuddles right now! 🥰❤️')">Seal With Love 🍯</button>
+            <button class="btn-action" style="background:#5c0618; border: 1px solid #d4af37;" onclick="alert('You are my permanent home. Send me a screenshot of your official passport, and let\'s share a sweet moment together right now. ✨❤️')">Seal Intact</button>
         </div>
     </section>
 
     <script src="script.js"></script>
 </body>
-</html>s
+</html>
