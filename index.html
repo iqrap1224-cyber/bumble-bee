@@ -51,7 +51,26 @@
                 <div id="heart-target" onclick="catchHeart()" onmouseover="flyAway()" ontouchstart="flyAway()"></div>
             </div>
 
-            <button id="btn-to-ch4" class="btn-action hidden" onclick="alert('Next up: The Love Jar! 🫙')">You caught my heart! Let's continue 🥰</button>
+            <button id="btn-to-ch4" class="btn-action hidden" onclick="nextChapter(4)">You caught my heart! Let's continue 🥰</button>
+        </div>
+    </section>
+
+    <section id="chapter-4" class="chapter">
+        <div class="container text-center jar-container">
+            <h2 class="subtitle">The Little Love Jar 🫙</h2>
+            <p id="jar-hint" class="game-hint">Click the jar to shake loose a hidden message...</p>
+            
+            <div class="jar-wrapper" onclick="shakeJar()">
+                <div id="love-jar">
+                    <div class="jar-lid"></div>
+                    <div class="jar-body">
+                        <div class="mini-heart"></div>
+                    </div>
+                </div>
+                <div id="jar-note" class="hidden-note">Click me!</div>
+            </div>
+
+            <button id="btn-to-ch5" class="btn-action hidden" onclick="alert('Next up: Take Away My Worries! ☁️')">Let's keep going ➡️</button>
         </div>
     </section>
 
