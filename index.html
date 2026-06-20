@@ -57,20 +57,29 @@
 
     <section id="chapter-4" class="chapter">
         <div class="container text-center jar-container">
-            <h2 class="subtitle">The Little Love Jar 🫙</h2>
-            <p id="jar-hint" class="game-hint">Click the jar to shake loose a hidden message...</p>
+            <h2 class="subtitle">The Little Love Jar</h2>
+            <p id="jar-hint" class="game-hint">Tap the big jar to shake loose a hidden message...</p>
             
             <div class="jar-wrapper" onclick="shakeJar()">
-                <div id="love-jar">
-                    <div class="jar-lid"></div>
-                    <div class="jar-body">
-                        <div class="mini-heart"></div>
-                    </div>
-                </div>
+                <div id="love-jar">🫙</div>
                 <div id="jar-note" class="hidden-note">Click me!</div>
             </div>
 
-            <button id="btn-to-ch5" class="btn-action hidden" onclick="alert('Next up: Take Away My Worries! ☁️')">Let's keep going ➡️</button>
+            <button id="btn-to-ch5" class="btn-action hidden" onclick="nextChapter(5)">Let's keep going ➡️</button>
+        </div>
+    </section>
+
+    <section id="chapter-5" class="chapter">
+        <div class="container text-center worry-container">
+            <h2 class="subtitle">Take Away Your Worries</h2>
+            <p id="worry-hint" class="game-hint">Tap this heavy dark cloud to fling it off your screen...</p>
+            
+            <div class="sky-arena">
+                <div class="bright-sun">☀️</div>
+                <div id="dark-cloud" onclick="dismissCloud()">☁️</div>
+            </div>
+
+            <button id="btn-to-ch6" class="btn-action hidden" onclick="alert('Next up: The Memory Book! 📖')">Your sky is clear! Let's continue ➡️</button>
         </div>
     </section>
 
