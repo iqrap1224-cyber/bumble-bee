@@ -5,7 +5,6 @@ function nextChapter(chapterNumber) {
         currentActive.style.opacity = "0";
     }
 
-    // Faster step response to avoid rendering stalls
     setTimeout(() => {
         document.querySelectorAll('.chapter').forEach(chapter => {
             chapter.classList.remove('active');
@@ -15,21 +14,15 @@ function nextChapter(chapterNumber) {
         if (targetChapter) {
             targetChapter.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            executeChapterLoadActions(chapterNumber);
         }
     }, 120);
 }
 
-// Router Event Listeners
-function executeChapterLoadActions(num) {
-    if(num === 8) buildBubbleWrapField();
-}
-
-// Low-Weight Backing Loop
+// Low-Weight Ambient Particle Engine
 function createAmbientHearts() {
     const symbols = ["✨", "⚜️", "🌹", "👑", "🕊️"];
     setInterval(() => {
-        if (document.hidden) return; // Cut execution when screen is inactive
+        if (document.hidden) return;
         const p = document.createElement("div");
         p.classList.add("floating-particle");
         p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
@@ -38,15 +31,15 @@ function createAmbientHearts() {
         p.style.animationDuration = (Math.random() * 2 + 6) + "s";
         document.body.appendChild(p);
         setTimeout(() => p.remove(), 6500);
-    }, 2500); // Higher spacing window to completely clear layout lag
+    }, 2500);
 }
 createAmbientHearts();
 
-// High Performance Matrix-Independent Burst Array
+// High Performance Fragment Burst Array
 function burstConfetti(x, y) {
     const shapes = ["✨", "⚜️", "🌹", "💎"];
     const container = document.createDocumentFragment();
-    for (let i = 0; i < 15; i++) { // Optimized particle count to stay lag-free
+    for (let i = 0; i < 15; i++) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
         confetti.innerText = shapes[Math.floor(Math.random() * shapes.length)];
@@ -65,7 +58,7 @@ function burstConfetti(x, y) {
     document.body.appendChild(container);
 }
 
-// Ch 1 Selection Response Listener
+// Ch 1 Click Interaction
 document.querySelectorAll('.promise-item').forEach(item => {
     item.addEventListener('click', (e) => burstConfetti(e.clientX, e.clientY));
 });
@@ -82,7 +75,7 @@ function openEnvelope() {
 }
 
 // Ch 3 Physics Target Path Chase
-let escapeCount = 0; const maxEscapes = 3; // Reduced complexity pathing to prevent skips
+let escapeCount = 0; const maxEscapes = 3;
 function flyAway() {
     const heart = document.getElementById('heart-target');
     if (escapeCount < maxEscapes) {
@@ -149,44 +142,54 @@ function turnPage() {
     }, 150);
 }
 
-// Ch 7 Pulse Progress Calculation
-let petCount = 0;
-function petAnimal() {
-    const pet = document.getElementById('virtual-pet'); pet.classList.add('purr');
-    petCount += 25; if(petCount > 100) petCount = 100;
-    document.getElementById('pet-progress').style.width = petCount + "%";
-    if(petCount >= 100) {
-        pet.innerText = "⚜️"; document.getElementById('pet-hint').innerText = "An Infinite Embrace is Fully Delivered.";
-        document.getElementById('btn-to-ch8').classList.remove('hidden');
+// NEW! Ch 7 Premium Sanctuary Lock Engine
+let keyEscapes = 0; const maxKeyEscapes = 3;
+function floatKey() {
+    const key = document.getElementById('skeleton-key');
+    if (keyEscapes < maxKeyEscapes) {
+        key.style.left = `${Math.floor(Math.random() * 55) + 20}%`;
+        key.style.top = `${Math.floor(Math.random() * 50) + 20}%`;
+        keyEscapes++;
     }
-    setTimeout(() => pet.classList.remove('purr'), 120);
+}
+function insertKey(e) {
+    if(e) burstConfetti(e.clientX, e.clientY);
+    keyEscapes = maxKeyEscapes;
+    const key = document.getElementById('skeleton-key');
+    key.style.left = "50%"; key.style.top = "50%";
+    key.style.transform = "translate3d(-50%, -50%, 0) scale(1.2)";
+    document.querySelector('.lock-keyhole-target').innerText = "🔓";
+    document.getElementById('lock-hint').innerHTML = "<strong>Unlocked!</strong> My inner world is completely yours to hold. ⚜️";
+    document.getElementById('btn-to-ch8').classList.remove('hidden');
 }
 
-// Ch 8 Matrix Assembly Engine
-let bubblesPopped = 0;
-function buildBubbleWrapField() {
-    const grid = document.getElementById('bubble-wrap-grid');
-    if(grid.children.length > 0) return;
-    const fragment = document.createDocumentFragment();
-    for(let i=0; i<8; i++){
-        const b = document.createElement('div'); b.classList.add('bubble-item'); b.innerText = "💎";
-        b.onclick = (e) => {
-            b.classList.add('popped'); b.innerText = "✨"; bubblesPopped++;
-            burstConfetti(e.clientX, e.clientY);
-            if(bubblesPopped >= 8) document.getElementById('btn-to-ch9').classList.remove('hidden');
-        };
-        fragment.appendChild(b);
+// NEW! Ch 8 Premium Record Stylus Engine
+let needleEscapes = 0; const maxNeedleEscapes = 3;
+function floatNeedle() {
+    const needle = document.getElementById('record-needle');
+    if (needleEscapes < maxNeedleEscapes) {
+        needle.style.left = `${Math.floor(Math.random() * 55) + 20}%`;
+        needle.style.top = `${Math.floor(Math.random() * 50) + 15}%`;
+        needleEscapes++;
     }
-    grid.appendChild(fragment);
+}
+function dropNeedle(e) {
+    if(e) burstConfetti(e.clientX, e.clientY);
+    needleEscapes = maxNeedleEscapes;
+    const needle = document.getElementById('record-needle');
+    needle.style.left = "50%"; needle.style.top = "40%";
+    needle.style.transform = "translate3d(-50%, -50%, 0) scale(1.15) rotate(15deg)";
+    document.getElementById('record-hint').innerHTML = "<strong>Playing:</strong> Our thoughts are aligned in a beautiful midnight symphony. 🎵";
+    document.getElementById('btn-to-ch9').classList.remove('hidden');
 }
 
-// Ch 9 Verification Array Monitors
+// Ch 9 Verification Card Flipping Monitor
 function checkAllFlips() {
     const flippedCount = document.querySelectorAll('.flip-card.flipped').length;
     if(flippedCount >= 2) document.getElementById('btn-to-ch10').classList.remove('hidden');
 }
 
-// Ch 10 Ticket Matrix Engine Reset
+// Ch 10 Ticket Engine Activation
 function claimCoupon(event) {
     burstConfetti(event.clientX, event.clientY);
     document.getElementById('coupon-card').style.transform = "scale3d(0.98, 0.98, 1)";
