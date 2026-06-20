@@ -48,7 +48,21 @@
             <button id="btn-to-ch3" class="btn-action hidden" onclick="alert('Next up: Catch the Bee! 🐝')">Continue the Journey ➡️</button>
         </div>
     </section>
+<!-- CHAPTER 3: CATCH THE BEE 🐝 -->
+    <section id="chapter-3" class="chapter">
+        <div class="container text-center game-container">
+            <h2 class="subtitle">Catch the Bumble Bee! 🐝</h2>
+            <p id="game-hint" class="game-hint">He's a little shy, see if you can catch him...</p>
+            
+            <div class="game-area">
+                <!-- The Interactive Bee -->
+                <div id="bee" onclick="catchBee()" onmouseover="flyAway()">🐝</div>
+            </div>
 
+            <!-- This button will be hidden until the bee is caught -->
+            <button id="btn-to-ch4" class="btn-action hidden" onclick="alert('Next up: The Love Jar! 🫙')">You caught him! Let's continue ❤️</button>
+        </div>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
