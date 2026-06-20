@@ -89,4 +89,21 @@ function shakeJar() {
             nextBtn.classList.remove('hidden');
         }
     }, 400);
-}s
+}
+
+// Chapter 5: Take Away My Worries Logic
+function dismissCloud() {
+    const cloud = document.getElementById('dark-cloud');
+    const sun = document.querySelector('.bright-sun');
+    const hint = document.getElementById('worry-hint');
+    const nextBtn = document.getElementById('btn-to-ch6');
+    
+    cloud.classList.add('cloud-fly-out');
+    
+    setTimeout(() => {
+        sun.classList.add('reveal');
+        hint.innerHTML = "<strong>See?</strong> I will always be here to chase away your darkest days. ☀️";
+        hint.style.color = "#ffb300";
+        nextBtn.classList.remove('hidden');
+    }, 400);
+}
