@@ -170,50 +170,57 @@ body {
     margin: 10px auto 20px auto;
     overflow: hidden;
 
-#bee {
+/* --- CHAPTER 3: CATCH MY HEART GAME --- */
+.game-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.game-area {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background: #fff5f5; /* Soft pink tint arena */
+    border-radius: 15px;
+    border: 2px dashed #d45d79;
+    margin: 10px auto 20px auto;
+    overflow: hidden;
+}
+
+/* Building a heart entirely out of CSS shapes */
+#heart-target {
     position: absolute;
-    width: 50px;
+    width: 40px;
     height: 40px;
-    background: #ffd54f; /* Bright yellow bee body */
-    border-radius: 50%;
-    border: 2px solid #333;
-    cursor: pointer;
+    background-color: #d45d79;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    cursor: pointer;
     transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    user-select: none;
     z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* The Black Stripe across the body */
-#bee .stripe {
+#heart-target::before,
+#heart-target::after {
+    content: "";
     position: absolute;
-    width: 14px;
-    height: 100%;
-    background: #333;
-    left: 18px;
-    top: 0;
-}
-
-/* Tiny cute wings */
-#bee .wing {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #333;
+    width: 40px;
+    height: 40px;
+    background-color: #d45d79;
     border-radius: 50%;
-    top: -14px;
 }
 
-#bee .left-wing {
-    left: 10px;
-    transform: rotate(-20deg);
+#heart-target::before {
+    top: -20px;
+    left: 0;
 }
 
-#bee .right-wing {
-    left: 22px;
-    transform: rotate(20deg);
+#heart-target::after {
+    left: 20px;
+    top: 0;
 }
