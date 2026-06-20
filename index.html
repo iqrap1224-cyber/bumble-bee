@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bumble Bee 🐝</title>
+    <title>Our Special Journey 🐝</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -71,7 +71,7 @@
 
     <section id="chapter-5" class="chapter">
         <div class="container text-center worry-container">
-            <h2 class="subtitle">Take Away Your Worries</h2>
+            <h2 class="subtitle">Take Away Your Worries ☁️</h2>
             <p id="worry-hint" class="game-hint">Tap this heavy dark cloud to fling it off your screen...</p>
             
             <div class="sky-arena">
@@ -79,7 +79,23 @@
                 <div id="dark-cloud" onclick="dismissCloud()">☁️</div>
             </div>
 
-            <button id="btn-to-ch6" class="btn-action hidden" onclick="alert('Next up: The Memory Book! 📖')">Your sky is clear! Let's continue ➡️</button>
+            <button id="btn-to-ch6" class="btn-action hidden" onclick="nextChapter(6)">Your sky is clear! Let's continue ➡️</button>
+        </div>
+    </section>
+
+    <section id="chapter-6" class="chapter">
+        <div class="container text-center memory-container">
+            <h2 class="subtitle">Our Memory Scrapbook 📖</h2>
+            <p class="game-hint">Click the button below to turn the pages...</p>
+            
+            <div class="book-wrapper">
+                <div class="book-page">
+                    <p id="memory-text" class="memory-content">✨ Page 1: The day you walked into my life and changed everything completely.</p>
+                </div>
+            </div>
+
+            <button id="btn-next-page" class="btn-action" onclick="turnPage()">Turn Page ➡️</button>
+            <button id="btn-finish" class="btn-action hidden" onclick="alert('You completed the entire journey! I love you endlessly. ❤️')">Finish Our Journey ❤️</button>
         </div>
     </section>
 
