@@ -1,89 +1,54 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home | Bumble Bee</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumble Bee 🐝</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div id="stars"></div>
+    <!-- CHAPTER 1: THE 3 PROMISES -->
+    <section id="chapter-1" class="chapter active">
+        <div class="container text-center">
+            <h1 class="title">My 3 Promises To You</h1>
+            <div class="promises-list">
+                <div class="promise-item">✨ I promise to always be your safe space when the world gets too loud.</div>
+                <div class="promise-item">🐝 I promise to listen, even to the things you leave unsaid.</div>
+                <div class="promise-item">❤️ I promise to choose you, every single day, without hesitation.</div>
+            </div>
+            <button class="btn-action" onclick="nextChapter(2)">❤️ I Promise</button>
+        </div>
+    </section>
 
-<div class="container">
+    <!-- CHAPTER 2: THE LOVE LETTER (ENVELOPE) -->
+    <section id="chapter-2" class="chapter">
+        <div class="container text-center">
+            <h2 class="subtitle">A little something for you...</h2>
+            
+            <div class="envelope-wrapper" onclick="openEnvelope()">
+                <div class="envelope">
+                    <div class="front flap"></div>
+                    <div class="front pocket"></div>
+                    <div class="letter">
+                        <div class="words">
+                            <p>My dearest,</p>
+                            <p>I know things have been a bit heavy lately, but I wanted to remind you how incredibly loved you are. You don't have to carry it all alone. Turn around, because I'm right here with you.</p>
+                            <p>Always yours. ❤️</p>
+                        </div>
+                    </div>
+                    <div class="hearts">
+                        <div class="heart a1"></div>
+                        <div class="heart a2"></div>
+                        <div class="heart a3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="btn-to-ch3" class="btn-action hidden" onclick="alert('Next up: Catch the Bee! 🐝')">Continue the Journey ➡️</button>
+        </div>
+    </section>
 
-<div class="glass">
-
-<h1 class="logo">Home</h1>
-
-<h2 id="chapterTitle">
-Hi, Bumble Bee 🐝
-</h2>
-
-<p id="message">
-
-I've been waiting for you.
-
-<br><br>
-
-Before we begin...
-
-Can I borrow your heart for just a few minutes?
-
-</p>
-
-<button id="nextBtn">
-❤️ Enter
-</button>
-
-<button id="hugBtn">
-🤍 Emergency Hug
-</button>
-
-</div>
-
-</div>
-
-<div id="hugScreen">
-
-<div class="hugCard">
-
-<h2>❤️</h2>
-
-<h3>Come Here.</h3>
-
-<p>
-
-If today feels heavy...
-
-you don't have to carry it alone.
-
-Rest here.
-
-I'm not going anywhere.
-
-</p>
-
-<button id="closeHug">
-
-Go Back
-
-</button>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-```
