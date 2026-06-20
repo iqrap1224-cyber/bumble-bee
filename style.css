@@ -1,5 +1,5 @@
 /* --- Premium Theme Configuration --- */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 body {
     margin: 0; padding: 0;
@@ -9,18 +9,16 @@ body {
     display: flex; justify-content: center; align-items: center; position: relative;
     -webkit-font-smoothing: antialiased;
 }
-.container { max-width: 480px; padding: 25px; margin: 0 auto; width: 100%; box-sizing: border-box; z-index: 5; }
+.container { max-width: 490px; padding: 20px; margin: 0 auto; width: 100%; box-sizing: border-box; z-index: 5; }
 .text-center { text-align: center; }
 
-/* --- Optimized Hardware Accelerated Ambient Particles --- */
+/* --- Optimized Ambient Particles --- */
 .floating-particle {
-    position: absolute; bottom: -50px; font-size: 1.2rem; pointer-events: none; opacity: 0.3;
-    transform: translate3d(0,0,0);
-    animation: floatUp 7s linear infinite; z-index: 1;
-    will-change: transform, opacity;
+    position: absolute; bottom: -50px; font-size: 1.2rem; pointer-events: none; opacity: 0.25;
+    transform: translate3d(0,0,0); animation: floatUp 7s linear infinite; z-index: 1; will-change: transform, opacity;
 }
 @keyframes floatUp {
-    0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.3; }
+    0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.25; }
     100% { transform: translate3d(30px, -105vh, 0) rotate(360deg); opacity: 0; }
 }
 .confetti { position: absolute; pointer-events: none; z-index: 999; animation: confettiFall 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards; will-change: transform, opacity; }
@@ -29,11 +27,11 @@ body {
     100% { transform: translate3d(var(--x), var(--y), 0) rotate(var(--r)) scale(0.5); opacity: 0; }
 }
 
-/* --- High Performance Screen Flow --- */
+/* --- High Performance Screen Routing --- */
 .chapter { display: none !important; opacity: 0; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s linear; width: 100%; transform: scale(0.97) translate3d(0,0,0); will-change: transform, opacity; }
 .chapter.active { display: flex !important; flex-direction: column; align-items: center; justify-content: center; opacity: 1; transform: scale(1) translate3d(0,0,0); }
 
-/* --- Luxury Visual Components --- */
+/* --- Luxury Visual Layouts --- */
 .title { font-family: 'Cinzel', serif; font-size: 2.1rem; color: #d4af37; margin-bottom: 2rem; font-weight: 600; letter-spacing: 2px; }
 .subtitle { font-family: 'Cinzel', serif; font-size: 1.7rem; color: #d4af37; margin-bottom: 1.5rem; font-weight: 600; letter-spacing: 1px; }
 .game-hint { font-size: 0.95rem; color: #c4b5b7; font-style: italic; margin-bottom: 25px; letter-spacing: 0.5px; }
@@ -54,33 +52,31 @@ body {
 .hidden { display: none !important; opacity: 0; }
 
 .game-container, .jar-container, .worry-container, .memory-container, .interactive-panel {
-    background: linear-gradient(180deg, #1a0307 0%, #0d0103 100%); padding: 35px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; border: 1px solid #3d0c15;
+    background: linear-gradient(180deg, #1a0307 0%, #0d0103 100%); padding: 30px 24px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; border: 1px solid #3d0c15;
 }
 
-/* --- Ch 2: Sleek Envelope Vault --- */
-.envelope-wrapper { position: relative; height: 260px; margin: 20px auto; cursor: pointer; width: 280px; transition: transform 0.2s ease; }
-.envelope-wrapper:hover { transform: scale(1.02); }
-.envelope { position: relative; width: 280px; height: 180px; background: #26050c; border-radius: 4px; border: 1px solid #4a0d19; }
-.envelope .front { position: absolute; width: 0; height: 0; z-index: 10; }
-.envelope .flap { border-left: 140px solid transparent; border-right: 140px solid transparent; border-top: 98px solid #420814; transform-origin: top; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 30; }
-.envelope .pocket { border-left: 140px solid #210309; border-right: 140px solid #210309; border-bottom: 90px solid #36050f; bottom: 0; z-index: 20; }
-.envelope .letter { position: absolute; background: #fffdfa; width: 250px; height: 140px; left: 15px; bottom: 10px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 15; padding: 20px; box-sizing: border-box; overflow: hidden; border-radius: 2px; box-shadow: inset 0 0 20px rgba(0,0,0,0.05); }
-.envelope .letter .words { font-size: 0.85rem; line-height: 1.6; text-align: left; color: #1f0207; font-family: 'Montserrat', sans-serif; font-weight: 400; }
+/* --- Ch 2: Expanded High-Visibility Letter --- */
+.envelope-wrapper { position: relative; height: 320px; margin: 20px auto; cursor: pointer; width: 300px; }
+.envelope { position: relative; width: 300px; height: 180px; background: #26050c; border-radius: 4px; border: 1px solid #4a0d19; }
+.envelope .flap { position: absolute; width: 0; height: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-top: 105px solid #420814; transform-origin: top; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 30; }
+.envelope .pocket { position: absolute; width: 0; height: 0; border-left: 150px solid #210309; border-right: 150px solid #210309; border-bottom: 95px solid #36050f; bottom: 0; z-index: 20; }
+.envelope .letter { position: absolute; background: #fffdfa; width: 280px; height: 150px; left: 10px; bottom: 10px; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 15; padding: 22px; box-sizing: border-box; overflow-y: auto; border-radius: 4px; box-shadow: 0 -5px 15px rgba(0,0,0,0.2); border: 1px solid transparent; }
+.envelope .letter .words { font-size: 0.95rem; line-height: 1.6; text-align: left; color: #1f0207; font-weight: 500; }
 .envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 5; }
-.envelope-wrapper.open .letter { transform: translate3d(0, -110px, 0); height: 200px; z-index: 25; border: 1px solid #d4af37; }
+.envelope-wrapper.open .letter { transform: translate3d(0, -140px, 0); height: 240px; z-index: 25; border-color: #d4af37; }
 
-/* --- Ch 3: Fluid Target Engine --- */
-.game-area { position: relative; width: 100%; height: 280px; background: #0d0103; border-radius: 12px; border: 1px solid #3d0c15; margin: 10px auto 20px auto; overflow: hidden; }
-#heart-target { position: absolute; width: 35px; height: 35px; background-color: #d4af37; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0) rotate(-45deg); cursor: pointer; transition: left 0.25s cubic-bezier(0.25, 1, 0.5, 1), top 0.25s cubic-bezier(0.25, 1, 0.5, 1); z-index: 100; will-change: left, top; }
+/* --- Ch 3: Elastic Target Engine --- */
+.game-area { position: relative; width: 100%; height: 280px; background: #080002; border-radius: 12px; border: 1px solid #3d0c15; margin: 10px auto 20px auto; overflow: hidden; }
+#heart-target { position: absolute; width: 35px; height: 35px; background-color: #d4af37; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0) rotate(-45deg); cursor: pointer; transition: left 0.22s cubic-bezier(0.25, 1, 0.5, 1), top 0.22s cubic-bezier(0.25, 1, 0.5, 1); z-index: 100; will-change: left, top; }
 #heart-target::before, #heart-target::after { content: ""; position: absolute; width: 35px; height: 35px; background-color: #d4af37; border-radius: 50%; }
 #heart-target::before { top: -18px; left: 0; }
 #heart-target::after { left: 18px; top: 0; }
 
-/* --- Ch 4: Keepsake Note System --- */
-.jar-wrapper { position: relative; height: 220px; margin: 20px auto; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
-#love-jar { font-size: 6rem; cursor: pointer; z-index: 10; transition: transform 0.1s ease; user-select: none; filter: drop-shadow(0 0 15px rgba(212,175,55,0.3)); }
-.hidden-note { position: absolute; width: 260px; background: #fffdfa; border-left: 4px solid #d4af37; padding: 20px; border-radius: 4px; font-size: 0.95rem; color: #1f0207; left: 50%; transform: translate3d(-50%, 0, 0) scale(0.8); bottom: 40px; z-index: 5; opacity: 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s linear; box-sizing: border-box; font-weight: 400; line-height: 1.6; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
-.hidden-note.pop-up { opacity: 1; transform: translate3d(-50%, -120px, 0) scale(1); z-index: 20; }
+/* --- Ch 4: Crystal Vault Note --- */
+.jar-wrapper { position: relative; height: 260px; margin: 20px auto; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
+#love-jar { font-size: 6rem; cursor: pointer; z-index: 10; transition: transform 0.1s ease; user-select: none; filter: drop-shadow(0 0 15px rgba(212,175,55,0.3)); margin-bottom: 10px; }
+.hidden-note { position: absolute; width: 100%; background: #fffdfa; border-left: 5px solid #d4af37; padding: 22px; border-radius: 4px; font-size: 1rem; color: #1f0207; left: 50%; transform: translate3d(-50%, 0, 0) scale(0.8); bottom: 20px; z-index: 5; opacity: 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s linear; box-sizing: border-box; font-weight: 500; line-height: 1.6; box-shadow: 0 20px 45px rgba(0,0,0,0.7); }
+.hidden-note.pop-up { opacity: 1; transform: translate3d(-50%, -110px, 0) scale(1); z-index: 20; }
 @keyframes jarShake { 0%, 100% { transform: rotate(0deg); } 30% { transform: rotate(-5deg); } 70% { transform: rotate(5deg); } }
 .shake-animation { animation: jarShake 0.25s ease-in-out; }
 
@@ -93,41 +89,33 @@ body {
 
 /* --- Ch 6: Scrapbook Display Structure --- */
 .book-wrapper { width: 100%; max-width: 420px; height: 180px; background: #fffdfa; border-left: 6px solid #d4af37; border-radius: 2px; margin: 20px auto; padding: 25px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-.memory-content { font-size: 1rem; line-height: 1.7; font-style: italic; color: #1f0207; transition: opacity 0.2s linear; font-weight: 400; }
+.memory-content { font-size: 1.05rem; line-height: 1.7; font-style: italic; color: #1f0207; transition: opacity 0.2s linear; font-weight: 500; }
 .page-flip-fade { opacity: 0; }
 
-/* --- Ch 7: Luxury Pulse Meter --- */
-#virtual-pet { font-size: 5.5rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); user-select: none; margin: 15px 0; display: inline-block; filter: drop-shadow(0 0 10px rgba(212,175,55,0.2)); }
-#virtual-pet.purr { transform: scale(1.15) rotate(3deg); }
-.progress-bar-container { background: #1f050a; width: 100%; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 20px; border: 1px solid #3d0c15; }
-#pet-progress { background: linear-gradient(90deg, #d4af37, #f3e5ab); width: 0%; height: 100%; transition: width 0.25s ease; }
+/* --- NEW Ch 7: Lock Chamber Studio Array --- */
+.lock-chamber-arena { position: relative; width: 100%; height: 260px; background: #060002; border-radius: 14px; border: 1px solid #3d0c15; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.lock-keyhole-target { font-size: 4.5rem; position: absolute; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0); filter: drop-shadow(0 0 15px rgba(212,175,55,0.2)); z-index: 10; }
+#skeleton-key { position: absolute; font-size: 3rem; left: 15%; top: 20%; cursor: pointer; z-index: 40; transition: left 0.24s cubic-bezier(0.25, 1, 0.5, 1), top 0.24s cubic-bezier(0.25, 1, 0.5, 1); user-select: none; will-change: left, top; filter: drop-shadow(0 0 12px #d4af37); }
 
-/* --- Ch 8: Crystal Matrix Field --- */
-.bubble-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 250px; margin: 20px auto; }
-.bubble-item { width: 52px; height: 52px; background: #24050b; border-radius: 8px; border: 1px solid #4a0d19; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: transform 0.1s ease, background 0.1s ease; }
-.bubble-item:active { transform: scale(0.9); }
-.bubble-item.popped { background: #0d0103; border-color: #1f050a; transform: scale(0.92); pointer-events: none; opacity: 0.4; }
+/* --- NEW Ch 8: Gramophone Player Deck --- */
+.gramophone-arena { position: relative; width: 100%; height: 260px; background: #060002; border-radius: 14px; border: 1px solid #3d0c15; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.vinyl-record-disc { width: 160px; height: 160px; background: radial-gradient(circle, #222 30%, #050505 70%); border-radius: 50%; border: 4px solid #111; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); animation: spinRecord 20s linear infinite; }
+@keyframes spinRecord { 100% { transform: rotate(360deg); } }
+.vinyl-center-label { width: 40px; height: 40px; background: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #120104; }
+#record-needle { position: absolute; font-size: 3.5rem; right: 15%; top: 15%; cursor: pointer; z-index: 40; transition: left 0.26s cubic-bezier(0.25, 1, 0.5, 1), top 0.26s cubic-bezier(0.25, 1, 0.5, 1); user-select: none; will-change: left, top; filter: drop-shadow(0 0 10px #d4af37); }
 
-/* --- Ch 9: Pillar Luxury Flips --- */
-.flip-board { display: flex; justify-content: center; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
-.flip-card { background-color: transparent; width: 130px; height: 120px; perspective: 1000px; cursor: pointer; }
-.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform-style: preserve-3d; }
-.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 14px; box-sizing: border-box; font-size: 0.95rem; font-weight: 500; }
-.flip-card-front { background-color: #1f050a; border: 1px dashed #d4af37; color: #d4af37; font-family: 'Cinzel', serif; }
-.flip-card-back { background-color: #fffdfa; border: 1px solid #d4af37; color: #1f0207; transform: rotateY(180deg); font-size: 0.8rem; line-height: 1.5; text-align: center; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+/* --- Ch 9: Pillar Exhibition Panels (Ultra Clean High-Contrast) --- */
+.flip-board { display: flex; flex-direction: column; gap: 20px; margin: 25px 0; width: 100%; }
+.flip-card { background-color: transparent; width: 100%; height: auto; min-height: 105px; perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; min-height: 105px; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); transform-style: preserve-3d; }
+.flip-card.flipped .flip-card-inner { transform: rotateX(180deg); }
+.flip-card-front, .flip-card-back { position: relative; width: 100%; min-height: 105px; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 22px 24px; box-sizing: border-box; font-size: 1.1rem; }
+.flip-card-front { background-color: #1f050a; border: 1px dashed #d4af37; color: #d4af37; font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 1.5px; }
+.flip-card-back { background-color: #fffdfa; border: 2px solid #d4af37; color: #120104; transform: rotateX(180deg); font-size: 1.05rem; line-height: 1.7; text-align: center; font-weight: 700; box-shadow: 0 15px 35px rgba(0,0,0,0.6); position: absolute; top: 0; left: 0; }
 
-/* --- Ch 10: Premium Passport Slip --- */
-.love-coupon {
-    background: linear-gradient(135deg, #1f050a 0%, #120104 100%);
-    border: 1px solid #d4af37; padding: 30px; border-radius: 4px; max-width: 400px; margin: 30px auto; cursor: pointer; position: relative; overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-.love-coupon::before {
-    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(212,175,55,0.2) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg); animation: shimmer 4s infinite linear;
-}
+/* --- Ch 10: Passport Card Slip --- */
+.love-coupon { background: linear-gradient(135deg, #1f050a 0%, #120104 100%); border: 1px solid #d4af37; padding: 30px; border-radius: 4px; max-width: 400px; margin: 30px auto; cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+.love-coupon::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(212,175,55,0.2) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); animation: shimmer 4s infinite linear; }
 @keyframes shimmer { 0% { left: -100%; } 100% { left: 150%; } }
 .coupon-header { font-family: 'Cinzel', serif; font-size: 0.8rem; color: #d4af37; letter-spacing: 2px; font-weight: 600; }
 .coupon-title { font-family: 'Cinzel', serif; font-size: 1.25rem; color: #fff8f0; margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; line-height: 1.5; }
