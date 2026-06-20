@@ -1,187 +1,128 @@
 /* --- Base Theme Layout --- */
 body {
     margin: 0; padding: 0;
-    background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
-    font-family: 'Georgia', serif; color: #4a4a4a;
+    background: linear-gradient(135deg, #fff0f2 0%, #ffe3e8 100%);
+    font-family: 'Comfortaa', 'Georgia', serif; color: #5a4b4e;
     min-height: 100vh; overflow-x: hidden;
     display: flex; justify-content: center; align-items: center; position: relative;
 }
-.container { max-width: 600px; padding: 20px; margin: 0 auto; width: 100%; box-sizing: border-box; z-index: 5; }
+.container { max-width: 500px; padding: 25px; margin: 0 auto; width: 100%; box-sizing: border-box; z-index: 5; }
 .text-center { text-align: center; }
 
-/* --- Ambient Particles & Confetti --- */
+/* --- Ambient Floating Particles --- */
 .floating-particle {
-    position: absolute; bottom: -50px; font-size: 1.5rem; pointer-events: none; opacity: 0.5;
-    animation: floatUp 6s linear infinite; z-index: 1;
+    position: absolute; bottom: -50px; font-size: 1.6rem; pointer-events: none; opacity: 0.5;
+    animation: floatUp 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; z-index: 1;
 }
 @keyframes floatUp {
     0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.5; }
-    100% { transform: translateY(-105vh) translateX(50px) rotate(360deg); opacity: 0; }
+    100% { transform: translateY(-105vh) translateX(40px) rotate(360deg); opacity: 0; }
 }
-.confetti { position: absolute; pointer-events: none; z-index: 999; animation: confettiFall 1.2s ease-out forwards; }
+.confetti { position: absolute; pointer-events: none; z-index: 999; animation: confettiFall 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards; }
 @keyframes confettiFall {
-    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    0% { transform: translate(0, 0) scale(1.2); opacity: 1; }
     100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(0.6); opacity: 0; }
 }
 
-/* --- Flow Architecture --- */
-.chapter { display: none !important; opacity: 0; transition: opacity 0.5s ease-in-out; width: 100%; }
-.chapter.active { display: flex !important; flex-direction: column; align-items: center; justify-content: center; opacity: 1; }
+/* --- Smooth Chapter Transitions (Hardware Accelerated) --- */
+.chapter { display: none !important; opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-in-out; width: 100%; transform: scale(0.95); will-change: transform, opacity; }
+.chapter.active { display: flex !important; flex-direction: column; align-items: center; justify-content: center; opacity: 1; transform: scale(1); }
 
-/* --- Global Components --- */
-.title { font-size: 2.2rem; color: #d45d79; margin-bottom: 2rem; }
-.subtitle { font-size: 1.8rem; color: #d45d79; margin-bottom: 1.5rem; }
-.game-hint { font-size: 1.1rem; color: #555; font-style: italic; margin-bottom: 20px; }
-.promises-list { margin-bottom: 2rem; }
+/* --- Global Cute Styling --- */
+.title { font-size: 2.3rem; color: #ff6b8b; margin-bottom: 2rem; font-weight: bold; }
+.subtitle { font-size: 1.9rem; color: #ff6b8b; margin-bottom: 1.5rem; font-weight: bold; }
+.game-hint { font-size: 1.05rem; color: #7d6b6e; font-style: italic; margin-bottom: 20px; }
+
 .promise-item {
-    background: rgba(255, 255, 255, 0.9); padding: 15px 20px; margin: 15px 0; border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.1rem; line-height: 1.6;
-    cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255, 255, 255, 0.95); padding: 18px 22px; margin: 15px 0; border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(255,107,139,0.06); font-size: 1.1rem; line-height: 1.6;
+    cursor: pointer; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease; border: 2px solid transparent;
 }
-.promise-item:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 8px 20px rgba(212, 93, 121, 0.15); }
+.promise-item:hover { transform: translateY(-4px) scale(1.02); border-color: #ffb3c1; background: #fffbfb; }
+
 .btn-action {
-    background: #d45d79; color: white; border: none; padding: 12px 30px; font-size: 1.1rem;
-    border-radius: 25px; cursor: pointer; box-shadow: 0 4px 10px rgba(212, 93, 121, 0.3);
-    transition: transform 0.2s, background 0.2s; margin-top: 20px;
+    background: #ff6b8b; color: white; border: none; padding: 14px 35px; font-size: 1.15rem;
+    border-radius: 30px; cursor: pointer; box-shadow: 0 6px 15px rgba(255, 107, 139, 0.2);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease; margin-top: 25px; font-weight: bold;
 }
-.btn-action:hover { transform: scale(1.05); background: #c24d67; }
-.hidden { display: none !important; }
+.btn-action:hover { transform: scale(1.05); background: #ff5276; }
+.hidden { display: none !important; opacity: 0; }
+
 .game-container, .jar-container, .worry-container, .memory-container, .interactive-panel {
-    background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); width: 100%; box-sizing: border-box;
+    background: white; padding: 35px; border-radius: 28px; box-shadow: 0 12px 40px rgba(255, 137, 161, 0.06); width: 100%; box-sizing: border-box; border: 3px solid #ffe3e8;
 }
 
 /* --- Ch 2: Envelope --- */
-.envelope-wrapper { position: relative; height: 250px; margin: 40px auto; cursor: pointer; width: 280px; }
-.envelope { position: relative; width: 280px; height: 180px; background: #f5eedc; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.envelope-wrapper { position: relative; height: 250px; margin: 30px auto; cursor: pointer; width: 280px; transition: transform 0.2s ease; }
+.envelope-wrapper:hover { transform: scale(1.02); }
+.envelope { position: relative; width: 280px; height: 180px; background: #fff3f5; border-radius: 12px; }
 .envelope .front { position: absolute; width: 0; height: 0; z-index: 10; }
-.envelope .flap { border-left: 140px solid transparent; border-right: 140px solid transparent; border-top: 98px solid #eddcd2; transform-origin: top; transition: transform 0.4s ease; z-index: 30; }
-.envelope .pocket { border-left: 140px solid #f0e6d2; border-right: 140px solid #f0e6d2; border-bottom: 90px solid #e6d5bc; bottom: 0; z-index: 20; }
-.envelope .letter { position: absolute; background: #ffffff; width: 250px; height: 150px; left: 15px; bottom: 10px; transition: transform 0.4s ease, height 0.4s ease; z-index: 15; padding: 15px; box-sizing: border-box; overflow: hidden; }
-.envelope .letter .words { font-size: 0.78rem; line-height: 1.4; text-align: left; color: #555; }
+.envelope .flap { border-left: 140px solid transparent; border-right: 140px solid transparent; border-top: 98px solid #ffccd5; transform-origin: top; transition: transform 0.4s ease; z-index: 30; border-radius: 12px 12px 0 0; }
+.envelope .pocket { border-left: 140px solid #fff0f2; border-right: 140px solid #fff0f2; border-bottom: 90px solid #ffccd5; bottom: 0; z-index: 20; border-radius: 0 0 12px 12px; }
+.envelope .letter { position: absolute; background: #ffffff; width: 250px; height: 140px; left: 15px; bottom: 10px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 15; padding: 18px; box-sizing: border-box; overflow: hidden; border-radius: 8px; border: 1px dashed #ffb3c1; }
+.envelope .letter .words { font-size: 0.85rem; line-height: 1.5; text-align: left; color: #6b5256; }
 .envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 5; }
-.envelope-wrapper.open .letter { transform: translateY(-110px); height: 200px; z-index: 25; }
+.envelope-wrapper.open .letter { transform: translateY(-110px); height: 180px; z-index: 25; }
 
-/* --- Ch 3: Catch Heart Arena --- */
-.game-area { position: relative; width: 100%; max-width: 500px; height: 300px; background: #fff5f5; border-radius: 15px; border: 2px dashed #d45d79; margin: 10px auto 20px auto; overflow: hidden; }
-#heart-target { position: absolute; width: 35px; height: 35px; background-color: #d45d79; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-45deg); cursor: pointer; transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 100; }
-#heart-target::before, #heart-target::after { content: ""; position: absolute; width: 35px; height: 35px; background-color: #d45d79; border-radius: 50%; }
+/* --- Ch 3: Elastic Catch Heart --- */
+.game-area { position: relative; width: 100%; height: 280px; background: #fffdfd; border-radius: 24px; border: 3px dashed #ffb3c1; margin: 10px auto 20px auto; overflow: hidden; }
+#heart-target { position: absolute; width: 35px; height: 35px; background-color: #ff6b8b; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-45deg); cursor: pointer; transition: left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 100; will-change: left, top; }
+#heart-target::before, #heart-target::after { content: ""; position: absolute; width: 35px; height: 35px; background-color: #ff6b8b; border-radius: 50%; }
 #heart-target::before { top: -18px; left: 0; }
 #heart-target::after { left: 18px; top: 0; }
 
-/* --- Ch 4: Love Jar --- */
-.jar-wrapper { position: relative; height: 260px; margin: 20px auto; width: 100%; max-width: 300px; display: flex; justify-content: center; align-items: flex-end; }
+/* --- Ch 4: Boop Jar --- */
+.jar-wrapper { position: relative; height: 250px; margin: 20px auto; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
 #love-jar { font-size: 7.5rem; cursor: pointer; z-index: 10; transition: transform 0.1s ease; user-select: none; }
-.hidden-note { position: absolute; width: 220px; background: #fffdf6; border: 2px dashed #ffd54f; padding: 15px; border-radius: 10px; font-size: 0.95rem; font-style: italic; color: #4a4a4a; box-shadow: 0 4px 15px rgba(0,0,0,0.1); left: 50%; transform: translate(-50%, 0) scale(0.8); bottom: 40px; z-index: 5; opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-sizing: border-box; }
-.hidden-note.pop-up { opacity: 1; transform: translate(-50%, -120px) scale(1); z-index: 20; }
-@keyframes jarShake { 0%, 100% { transform: scale(1) rotate(0deg); } 20%, 60% { transform: scale(1) rotate(-8deg); } 40%, 80% { transform: scale(1) rotate(8deg); } }
-.shake-animation { animation: jarShake 0.4s ease-in-out; }
-.jar-heart { position: absolute; font-size: 1.2rem; pointer-events: none; z-index: 8; animation: fallInJar 0.5s ease-in forwards; }
-@keyframes fallInJar { 0% { transform: translateY(-120px) scale(0.5); opacity: 0; } 100% { transform: translateY(-15px) scale(1); opacity: 0.8; } }
+.hidden-note { position: absolute; width: 230px; background: #fffdf9; border: 2px dashed #ffb3c1; padding: 15px; border-radius: 16px; font-size: 1rem; color: #5a4b4e; left: 50%; transform: translate(-50%, 0) scale(0.8); bottom: 40px; z-index: 5; opacity: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; box-sizing: border-box; }
+.hidden-note.pop-up { opacity: 1; transform: translate(-50%, -130px) scale(1); z-index: 20; }
+@keyframes jarShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+.shake-animation { animation: jarShake 0.3s ease-in-out; }
 
-/* --- Ch 5: Sky Arena --- */
-.sky-arena { position: relative; width: 100%; max-width: 500px; height: 250px; background: linear-gradient(to bottom, #b0d0ff, #e4efff); border-radius: 15px; margin: 20px auto; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.bright-sun { font-size: 5rem; z-index: 1; opacity: 0; transform: scale(0.5); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.bright-sun.reveal { opacity: 1; transform: scale(1.2); }
-#dark-cloud { position: absolute; font-size: 6.5rem; cursor: pointer; z-index: 5; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease; }
-.cloud-fly-out { transform: translate(400px, -300px) scale(0.2); opacity: 0; }
+/* --- Ch 5: Weather System --- */
+.sky-arena { position: relative; width: 100%; height: 240px; background: linear-gradient(to bottom, #ffeef2, #fff6f8); border-radius: 24px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.bright-sun { font-size: 5.5rem; z-index: 1; opacity: 0; transform: scale(0.5); transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; }
+.bright-sun.reveal { opacity: 1; transform: scale(1.1); }
+#dark-cloud { position: absolute; font-size: 6.5rem; cursor: pointer; z-index: 5; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; user-select: none; will-change: transform, opacity; }
+.cloud-fly-out { transform: translate(300px, -200px) scale(0.2); opacity: 0; }
 
-/* --- Ch 6: Scrapbook --- */
-.book-wrapper { width: 100%; max-width: 450px; height: 200px; background: #fffdf6; border: 2px solid #e6d5bc; border-left: 8px solid #d45d79; border-radius: 4px 15px 15px 4px; margin: 20px auto; padding: 25px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
-.memory-content { font-size: 1.1rem; line-height: 1.6; font-style: italic; color: #555; transition: opacity 0.3s ease; }
+/* --- Ch 6: Scrapbook Flips --- */
+.book-wrapper { width: 100%; max-width: 420px; height: 180px; background: #fffdfb; border: 3px solid #ffe3e8; border-left: 10px solid #ff6b8b; border-radius: 6px 20px 20px 6px; margin: 20px auto; padding: 25px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+.memory-content { font-size: 1.1rem; line-height: 1.6; font-style: italic; color: #6b5256; transition: opacity 0.2s ease; }
 .page-flip-fade { opacity: 0; }
 
-/* --- Ch 7: Pizza Toppings --- */
-.pizza-base { width: 180px; height: 180px; background: #f4c430; border-radius: 50%; margin: 20px auto; position: relative; border: 10px solid #cd853f; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.pizza-base.bake-spin { transform: rotate(360deg) scale(1.05); }
-.crust { width: 100%; height: 100%; background: #e23636; border-radius: 50%; position: relative; overflow: hidden; }
-#pizza-toppings-zone { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
-.placed-topping { position: absolute; font-size: 1.6rem; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-@keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
-.ingredients-shelf { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-.ingredient-item { background: #fff1f3; border: 2px dashed #d45d79; padding: 8px 15px; border-radius: 20px; cursor: pointer; user-select: none; }
+/* --- Ch 7: Hug Progress Panel --- */
+#virtual-pet { font-size: 6.5rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.5); user-select: none; margin: 15px 0; display: inline-block; }
+#virtual-pet.purr { transform: scale(1.2) rotate(5deg); }
+.progress-bar-container { background: #ffeef1; width: 100%; height: 14px; border-radius: 10px; overflow: hidden; margin-top: 15px; border: 1px solid #ffccd5; }
+#pet-progress { background: linear-gradient(90deg, #ff6b8b, #ff8da5); width: 0%; height: 100%; transition: width 0.2s ease; }
 
-/* --- Ch 8: Quiz --- */
-.quiz-options { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-.quiz-opt-btn { background: #fdfdfd; border: 2px solid #eee; padding: 14px; border-radius: 12px; font-size: 1.05rem; cursor: pointer; transition: all 0.2s; text-align: left; }
-.quiz-opt-btn:hover { border-color: #d45d79; background: #fff9fa; transform: translateX(4px); }
-.quiz-feedback-box { font-size: 1.1rem; min-height: 24px; font-weight: bold; margin-top: 15px; }
+/* --- Ch 8: Bubble Grid --- */
+.bubble-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 250px; margin: 20px auto; }
+.bubble-item { width: 52px; height: 52px; background: #ffeef1; border-radius: 50%; border: 2px solid #ffccd5; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: transform 0.15s ease, background 0.15s ease; }
+.bubble-item:active { transform: scale(0.85); }
+.bubble-item.popped { background: #f8fafc; border-color: #e2e8f0; transform: scale(0.9); pointer-events: none; }
 
-/* --- NEW CHAPTERS STYLING --- */
-
-/* Ch 9: Bubble Wrap */
-.bubble-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 260px; margin: 20px auto; }
-.bubble-item { width: 50px; height: 50px; background: #e0f2fe; border-radius: 50%; border: 2px solid #bae6fd; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.15s ease; box-shadow: inset 0 -4px 6px rgba(0,0,0,0.05); }
-.bubble-item.popped { background: #f1f5f9; border-color: #cbd5e1; transform: scale(0.9); box-shadow: none; pointer-events: none; }
-
-/* Ch 10: Slots */
-.slot-machine { display: flex; justify-content: center; gap: 15px; margin: 20px auto; background: #1e293b; padding: 20px; border-radius: 15px; max-width: 300px; border: 4px solid #f59f00; }
-.slot-reel { width: 60px; height: 70px; background: white; border-radius: 8px; font-size: 2.2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; overflow: hidden; transition: transform 0.1s ease; }
-.reel-spinning { animation: blurSpin 0.1s linear infinite; }
-@keyframes blurSpin { 0% { transform: translateY(-10px); filter: blur(2px); } 50% { transform: translateY(10px); } 100% { transform: translateY(-10px); } }
-
-/* Ch 11: Virtual Pet */
-#virtual-pet { font-size: 6.5rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); user-select: none; margin: 20px 0; display: inline-block; }
-#virtual-pet.purr { transform: scale(1.15) rotate(5deg); }
-.progress-bar-container { background: #f1f5f9; width: 100%; height: 12px; border-radius: 10px; overflow: hidden; margin-top: 15px; }
-#pet-progress { background: #d45d79; width: 0%; height: 100%; transition: width 0.3s ease; }
-
-/* Ch 12: Stars Constellation */
-.star-sky { background: #0f172a; height: 240px; width: 100%; border-radius: 15px; position: relative; overflow: hidden; margin: 20px 0; }
-.sky-star { position: absolute; font-size: 1.5rem; color: #334155; cursor: pointer; user-select: none; transition: transform 0.3s, color 0.3s; }
-.sky-star.lit { color: #facc15; transform: scale(1.4); text-shadow: 0 0 10px #fef08a; }
-
-/* Ch 13: Decryption Input */
-.custom-input { width: 100%; padding: 12px 20px; font-size: 1.1rem; border-radius: 12px; border: 2px solid #cbd5e1; box-sizing: border-box; text-align: center; text-transform: uppercase; outline: none; }
-.custom-input:focus { border-color: #d45d79; }
-
-/* Ch 14: Flower Vase */
-.flower-vase { font-size: 5.5rem; position: relative; height: 140px; margin-bottom: 20px; }
-.bundled-flower { position: absolute; font-size: 2rem; bottom: 65px; transform-origin: bottom center; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-.flower-options { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-.flower-btn { background: #f8fafc; border: 2px solid #e2e8f0; padding: 10px 16px; border-radius: 20px; cursor: pointer; font-size: 1rem; }
-
-/* Ch 15: Brick Breaker */
-.brick-arena { display: flex; flex-direction: column; gap: 10px; margin: 20px auto; max-width: 300px; }
-.brick { background: #475569; color: white; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s ease; user-select: none; }
-.brick.destroyed { transform: scale(0) rotate(10deg); opacity: 0; height: 0; padding: 0; margin: 0; pointer-events: none; }
-
-/* Ch 16: Tea Maker */
-.mug-container { font-size: 6.5rem; position: relative; display: inline-block; margin: 20px 0; }
-#steam-effect { position: absolute; font-size: 2rem; top: -25px; left: 35px; opacity: 0; transition: opacity 0.5s; animation: steamRise 1.5s infinite linear; }
-@keyframes steamRise { 0% { transform: translateY(0) scale(0.9); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: translateY(-15px) scale(1.1); opacity: 0; } }
-.tea-ingredients { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-
-/* Ch 17: Sand Digger */
-.dig-sand-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 220px; margin: 20px auto; }
-.sand-patch { background: #eddcd2; border-radius: 12px; height: 75px; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; transition: background 0.3s; }
-.sand-patch.dug { background: #fffdf6; border: 2px dashed #cb997e; cursor: default; }
-
-/* Ch 18: Fireworks */
-.firework-sky { background: #020617; height: 180px; border-radius: 15px; position: relative; display: flex; justify-content: center; align-items: flex-end; gap: 40px; padding-bottom: 20px; overflow: hidden; }
-.rocket { font-size: 2rem; cursor: pointer; transition: transform 0.5s ease; display: inline-block; }
-.rocket.launched { transform: translateY(-150px) scale(0); opacity: 0; }
-
-/* Ch 19: Flip Cards Layout */
-.flip-board { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-.flip-card { background-color: transparent; width: 140px; height: 100px; perspective: 1000px; cursor: pointer; }
-.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+/* --- Ch 9: Card Flips --- */
+.flip-board { display: flex; justify-content: center; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
+.flip-card { background-color: transparent; width: 130px; height: 110px; perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
 .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 8px; box-sizing: border-box; font-size: 0.95rem; font-weight: bold; }
-.flip-card-front { background-color: #f1f5f9; border: 2px dashed #cbd5e1; color: #64748b; }
-.flip-card-back { background-color: #ffeff2; border: 2px solid #d45d79; color: #d45d79; transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 18px; display: flex; align-items: center; justify-content: center; padding: 12px; box-sizing: border-box; font-size: 0.95rem; font-weight: bold; }
+.flip-card-front { background-color: #fff5f7; border: 2px dashed #ffccd5; color: #ff6b8b; }
+.flip-card-back { background-color: #fff0f3; border: 2px solid #ff6b8b; color: #ff6b8b; transform: rotateY(180deg); }
 
-/* Ch 20: Golden Ticket Coupon */
+/* --- Ch 10: Shimmer Ticket Passport --- */
 .love-coupon {
-    background: linear-gradient(135deg, #fff9db 0%, #fff3bf 100%);
-    border: 3px dashed #fab005; padding: 25px; border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(250, 176, 5, 0.2); max-width: 400px; margin: 30px auto; cursor: pointer; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe3e8 100%);
+    border: 3px dashed #ff6b8b; padding: 25px; border-radius: 24px; max-width: 400px; margin: 30px auto; cursor: pointer; position: relative; overflow: hidden;
 }
 .love-coupon::before {
     content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg); animation: shimmer 3s infinite;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg); animation: shimmer 3s infinite linear;
 }
 @keyframes shimmer { 0% { left: -100%; } 100% { left: 150%; } }
-.coupon-header { font-size: 0.8rem; color: #f59f00; letter-spacing: 2px; font-weight: bold; }
-.coupon-title { font-size: 1.4rem; color: #d44b00; margin: 15px 0; font-weight: bold; }
-.coupon-footer { font-size: 0.9rem; color: #666; line-height: 1.4; }
+.coupon-header { font-size: 0.8rem; color: #ff6b8b; letter-spacing: 2px; font-weight: bold; }
+.coupon-title { font-size: 1.35rem; color: #d43f5e; margin: 15px 0; font-weight: bold; }
+.coupon-footer { font-size: 0.9rem; color: #7d6b6e; line-height: 1.5; }
