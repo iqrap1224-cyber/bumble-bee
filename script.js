@@ -25,47 +25,44 @@ function openEnvelope() {
         }, 600);
     }
 }
-
-// Chapter 3: Catch The Bee Logic Engine
 let escapeCount = 0;
-const maxEscapes = 5; // The bee will give up and stand still on the 6th run
+const maxEscapes = 5; 
 
 function flyAway() {
-    const bee = document.getElementById('bee');
+    const heart = document.getElementById('heart-target');
     const hint = document.getElementById('game-hint');
     
     if (escapeCount < maxEscapes) {
-        // Keeps the safe coordinates bounded entirely inside the honey grid bounds
-        const maxX = 80; 
-        const maxY = 70;
+        const maxX = 75; 
+        const maxY = 65;
         
-        const randomX = Math.floor(Math.random() * maxX) + 10;
-        const randomY = Math.floor(Math.random() * maxY) + 10;
+        const randomX = Math.floor(Math.random() * maxX) + 15;
+        const randomY = Math.floor(Math.random() * maxY) + 15;
         
-        bee.style.left = `${randomX}%`;
-        bee.style.top = `${randomY}%`;
+        // Keep the rotate(-45deg) intact so the heart shape doesn't break when moving!
+        heart.style.left = `${randomX}%`;
+        heart.style.top = `${randomY}%`;
         
         escapeCount++;
         
-        // Dynamically alter contextual logs to make him smirk
-        if (escapeCount === 2) hint.innerText = "Wow, he's fast! Try again! 😂";
-        if (escapeCount === 4) hint.innerText = "Okay, he's just teasing you now... 🍯";
+        if (escapeCount === 2) hint.innerText = "It's running wild! Try again! 😂";
+        if (escapeCount === 4) hint.innerText = "Just a little closer... ❤️";
     }
 }
 
-function catchBee() {
-    const bee = document.getElementById('bee');
+function catchHeart() {
+    const heart = document.getElementById('heart-target');
     const hint = document.getElementById('game-hint');
     const nextBtn = document.getElementById('btn-to-ch4');
     
-    // Lock the bee's flight engine down instantly
     escapeCount = maxEscapes; 
     
-    // Scale and adjust content logs safely
-    bee.style.transform = "translate(-50%, -50%) scale(1.4)";
-    hint.innerHTML = "<strong>You caught him!</strong> He brought a message: <em>'I will always fly back to you.'</em> 💛";
+    // Pulse animation when caught
+    heart.style.transform = "translate(-50%, -50%) rotate(-45deg) scale(1.4)";
+    hint.innerHTML = "<strong>You caught it!</strong> <em>'My heart belongs to you anyway.'</em> 💖";
     hint.style.color = "#d45d79";
     
-    // Present progression options
     nextBtn.classList.remove('hidden');
 }
+// Chapter 3: Catch The Bee Logic Engine
+
