@@ -1,11 +1,11 @@
-// Function to switch between chapters smoothly
+// Global System Transition Manager
 function nextChapter(chapterNumber) {
-    // Hide all chapters
+    // Hide every single available chapter completely
     document.querySelectorAll('.chapter').forEach(chapter => {
         chapter.classList.remove('active');
     });
 
-    // Show the targeted chapter
+    // Make the newly requested chapter visible
     const targetChapter = document.getElementById(`chapter-${chapterNumber}`);
     if (targetChapter) {
         targetChapter.classList.add('active');
@@ -13,28 +13,30 @@ function nextChapter(chapterNumber) {
     }
 }
 
-// Chapter 2 Interaction: Open Envelope
+// Chapter 2: Envelope Interaction Rules
 function openEnvelope() {
     const envelope = document.querySelector('.envelope-wrapper');
     envelope.classList.toggle('open');
     
-    // Reveal the next button after he opens the letter
-    if(envelope.classList.contains('open')) {
+    // Smoothly display Chapter 3 activation triggers once the envelope unrolls
+    if (envelope.classList.contains('open')) {
         setTimeout(() => {
             document.getElementById('btn-to-ch3').classList.remove('hidden');
-        }, 600); // Small delay for visual effect
+        }, 600);
     }
 }
+
+// Chapter 3: Catch The Bee Logic Engine
 let escapeCount = 0;
-const maxEscapes = 5; // The bee will let itself be caught on the 6th try
+const maxEscapes = 5; // The bee will give up and stand still on the 6th run
 
 function flyAway() {
     const bee = document.getElementById('bee');
     const hint = document.getElementById('game-hint');
     
     if (escapeCount < maxEscapes) {
-        // Calculate a random position inside the game area box
-        const maxX = 80; // percentage limits to stay inside the box safely
+        // Keeps the safe coordinates bounded entirely inside the honey grid bounds
+        const maxX = 80; 
         const maxY = 70;
         
         const randomX = Math.floor(Math.random() * maxX) + 10;
@@ -45,7 +47,7 @@ function flyAway() {
         
         escapeCount++;
         
-        // Change text hints based on attempts to make it funny
+        // Dynamically alter contextual logs to make him smirk
         if (escapeCount === 2) hint.innerText = "Wow, he's fast! Try again! 😂";
         if (escapeCount === 4) hint.innerText = "Okay, he's just teasing you now... 🍯";
     }
@@ -56,14 +58,14 @@ function catchBee() {
     const hint = document.getElementById('game-hint');
     const nextBtn = document.getElementById('btn-to-ch4');
     
-    // Stop the bee from flying away anymore
+    // Lock the bee's flight engine down instantly
     escapeCount = maxEscapes; 
     
-    // Visual celebration
-    bee.style.transform = "translate(-50%, -50%) scale(1.5)";
+    // Scale and adjust content logs safely
+    bee.style.transform = "translate(-50%, -50%) scale(1.4)";
     hint.innerHTML = "<strong>You caught him!</strong> He brought a message: <em>'I will always fly back to you.'</em> 💛";
     hint.style.color = "#d45d79";
     
-    // Reveal the next chapter button
+    // Present progression options
     nextBtn.classList.remove('hidden');
 }
