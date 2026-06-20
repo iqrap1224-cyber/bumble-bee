@@ -1,0 +1,171 @@
+﻿*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#000;
+overflow-x:hidden;
+color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,215,120,.12),transparent 30%),
+radial-gradient(circle at 80% 40%,rgba(255,255,255,.05),transparent 35%),
+radial-gradient(circle at center,#111,#000);
+z-index:-2;
+}
+
+#stars{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:-1;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+
+.container{
+width:92%;
+max-width:850px;
+padding:40px 0;
+}
+
+.glass{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.12);
+border-radius:35px;
+padding:45px;
+box-shadow:0 0 60px rgba(255,215,0,.15);
+animation:fade .8s;
+}
+
+.logo{
+font-size:72px;
+font-weight:300;
+letter-spacing:10px;
+text-align:center;
+color:#D4AF37;
+margin-bottom:15px;
+text-shadow:0 0 25px rgba(212,175,55,.5);
+}
+
+#chapterTitle{
+font-size:32px;
+text-align:center;
+margin-bottom:25px;
+}
+
+#message{
+font-size:20px;
+line-height:2;
+text-align:center;
+color:#eee;
+min-height:250px;
+white-space:pre-line;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+button{
+padding:18px 45px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:17px;
+font-weight:600;
+background:linear-gradient(135deg,#D4AF37,#FFE082);
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.06);
+box-shadow:0 0 25px gold;
+}
+
+#passwordBox{
+display:none;
+width:320px;
+margin:25px auto;
+padding:15px;
+border:none;
+border-radius:30px;
+font-size:17px;
+text-align:center;
+}
+
+#passwordBox.show{
+display:block;
+}
+
+#hugScreen{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+display:none;
+justify-content:center;
+align-items:center;
+padding:30px;
+z-index:999;
+}
+
+.hugCard{
+max-width:600px;
+background:#111;
+padding:40px;
+border-radius:25px;
+text-align:center;
+border:1px solid rgba(255,255,255,.12);
+}
+
+.hugCard h2{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hugCard p{
+font-size:22px;
+line-height:2;
+margin:30px 0;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:none;
+}
+}
