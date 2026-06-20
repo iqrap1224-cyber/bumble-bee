@@ -22,16 +22,16 @@ body {
 
 .text-center { text-align: center; }
 
-/* --- Clean Architectural Layout Transitions --- */
+/* --- Strict Chapter Architecture --- */
 .chapter {
-    display: none; 
+    display: none !important; 
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     width: 100%;
 }
 
 .chapter.active {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -39,10 +39,10 @@ body {
 }
 
 /* --- Interactive Elements & Buttons --- */
-.title { font-size: 2.5rem; color: #d45d79; margin-bottom: 2rem; }
+.title { font-size: 2.2rem; color: #d45d79; margin-bottom: 2rem; }
 .subtitle { font-size: 1.8rem; color: #d45d79; margin-bottom: 2rem; }
 
-.promises-list { margin-bottom: 3rem; }
+.promises-list { margin-bottom: 2rem; }
 .promise-item {
     background: rgba(255, 255, 255, 0.9);
     padding: 15px 20px;
@@ -142,12 +142,13 @@ body {
 }
 
 /* --- Chapter 3: Catch My Heart Arena --- */
-.game-container {
+.game-container, .jar-container {
     background: white;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     width: 100%;
+    box-sizing: border-box;
 }
 
 .game-hint {
@@ -170,7 +171,6 @@ body {
     overflow: hidden;
 }
 
-/* CSS Shape Generation Engine for Heart Component */
 #heart-target {
     position: absolute;
     width: 35px;
@@ -194,12 +194,101 @@ body {
     border-radius: 50%;
 }
 
-#heart-target::before {
-    top: -18px;
-    left: 0;
+#heart-target::before { top: -18px; left: 0; }
+#heart-target::after { left: 18px; top: 0; }
+
+/* --- Chapter 4: The Love Jar --- */
+.jar-wrapper {
+    position: relative;
+    height: 260px;
+    margin: 20px auto;
+    width: 160px;
+    cursor: pointer;
 }
 
-#heart-target::after {
-    left: 18px;
-    top: 0;
+#love-jar {
+    position: absolute;
+    bottom: 0;
+    width: 140px;
+    height: 180px;
+    left: 10px;
+    z-index: 10;
+    transition: transform 0.1s ease;
 }
+
+.jar-lid {
+    width: 90px;
+    height: 20px;
+    background: #e6d5bc;
+    border-radius: 5px;
+    margin: 0 auto;
+    border: 2px solid #4a4a4a;
+}
+
+.jar-body {
+    width: 140px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 3px solid #4a4a4a;
+    border-radius: 20px 20px 30px 30px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(212, 93, 121, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-heart {
+    width: 20px;
+    height: 20px;
+    background-color: #d45d79;
+    transform: rotate(-45deg);
+    position: relative;
+}
+.mini-heart::before, .mini-heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #d45d79;
+    border-radius: 50%;
+}
+.mini-heart::before { top: -10px; left: 0; }
+.mini-heart::after { left: 10px; top: 0; }
+
+.hidden-note {
+    position: absolute;
+    width: 180px;
+    background: #fffdf6;
+    border: 2px dashed #ffd54f;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #4a4a4a;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    left: -10px;
+    top: 60px;
+    z-index: 5;
+    opacity: 0;
+    transform: scale(0.8) translateY(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-sizing: border-box;
+}
+
+.hidden-note.pop-up {
+    opacity: 1;
+    transform: scale(1) translateY(-90px);
+    z-index: 20;
+}
+
+@keyframes jarShake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-8px, 0) rotate(-5deg); }
+    40% { transform: translate(6px, 0) rotate(5deg); }
+    60% { transform: translate(-5px, 0) rotate(-3deg); }
+    80% { transform: translate(4px, 0) rotate(3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake-animation { animation: jarShake 0.4s ease-in-out; }
