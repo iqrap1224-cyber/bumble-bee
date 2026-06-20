@@ -1,4 +1,4 @@
-/* --- Base Application Setup --- */
+/* --- Base Theme Layout --- */
 body {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ body {
 
 .text-center { text-align: center; }
 
-/* --- Strict Chapter Architecture --- */
+/* --- Strict Flow Architecture --- */
 .chapter {
     display: none !important; 
     opacity: 0;
@@ -38,7 +38,7 @@ body {
     opacity: 1;
 }
 
-/* --- Interactive Elements & Buttons --- */
+/* --- Global Elements & Buttons --- */
 .title { font-size: 2.2rem; color: #d45d79; margin-bottom: 2rem; }
 .subtitle { font-size: 1.8rem; color: #d45d79; margin-bottom: 2rem; }
 
@@ -68,7 +68,7 @@ body {
 .btn-action:hover { transform: scale(1.05); background: #c24d67; }
 .hidden { display: none !important; }
 
-/* --- Chapter 2: The Letter Envelope --- */
+/* --- Chapter 2: Animated Envelope --- */
 .envelope-wrapper {
     position: relative;
     height: 250px;
@@ -130,19 +130,11 @@ body {
     color: #555;
 }
 
-.envelope-wrapper.open .flap {
-    transform: rotateX(180deg);
-    z-index: 5;
-}
+.envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 5; }
+.envelope-wrapper.open .letter { transform: translateY(-110px); height: 200px; z-index: 25; }
 
-.envelope-wrapper.open .letter {
-    transform: translateY(-110px);
-    height: 200px;
-    z-index: 25;
-}
-
-/* --- Containers --- */
-.game-container, .jar-container, .worry-container {
+/* --- Interaction Styling Core Containers --- */
+.game-container, .jar-container, .worry-container, .memory-container {
     background: white;
     padding: 30px;
     border-radius: 20px;
@@ -159,7 +151,7 @@ body {
     min-height: 28px;
 }
 
-/* --- Chapter 3: Heart Arena --- */
+/* --- Chapter 3: Floating Heart Arena --- */
 .game-area {
     position: relative;
     width: 100%;
@@ -196,7 +188,7 @@ body {
 #heart-target::before { top: -18px; left: 0; }
 #heart-target::after { left: 18px; top: 0; }
 
-/* --- Chapter 4: Love Jar --- */
+/* --- Chapter 4: Shaking Love Jar --- */
 .jar-wrapper {
     position: relative;
     height: 260px;
@@ -252,7 +244,7 @@ body {
 }
 .shake-animation { animation: jarShake 0.4s ease-in-out; }
 
-/* --- Chapter 5: Sky Arena --- */
+/* --- Chapter 5: Sky Arena & Cloud Fling --- */
 .sky-arena {
     position: relative;
     width: 100%;
@@ -290,3 +282,31 @@ body {
     opacity: 0;
     pointer-events: none;
 }
+
+/* --- Chapter 6: The Memory Book --- */
+.book-wrapper {
+    width: 100%;
+    max-width: 450px;
+    height: 200px;
+    background: #fffdf6;
+    border: 2px solid #e6d5bc;
+    border-left: 8px solid #d45d79;
+    border-radius: 4px 15px 15px 4px;
+    margin: 20px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+}
+
+.memory-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: #555;
+    transition: opacity 0.3s ease;
+}
+
+.page-flip-fade { opacity: 0; }
